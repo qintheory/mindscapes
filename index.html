@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Input text with D3</title> <!-- adapted from http://javadude.wordpress.com/2012/05/17/d3-js-with-dynamic-data/ -->
+    <script src="d3/d3.min.js"></script>
+
+    <style>
+        body {font-family: monospace; line-height: 160%; font-size: 18px; }
+        input {border: 1px dotted #ccc; background: white; font-family: monospace; padding: 10px 20px; font-size: 18px; margin: 20px 10px 20px 0; color: red;}
+        input:focus { background-color:yellow; outline: none;}
+        circle {
+          fill: #ccc;
+          stroke: #333;
+          stroke-width: 1.5px;
+        }
+        
+        text {
+          font: 10px sans-serif;
+          pointer-events: none;
+          text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+        }
+        
+        .link {
+          fill: none;
+          stroke: black;
+          stroke-width: 1.5px;
+        }
+        
+                line {
+            stroke: steelblue;
+            stroke-width: 2px;
+            stroke-linecap: round;
+        }
+    </style>
+</head>
+<body>
+<h2>Mindscape Demo</h2>
+<p>What is the significance of education in our society today? Type in any throughts that came up to your mind in the following field: </p>
+<form name="Baseline Generation" onSubmit="return enter()">
+    <input type="text" id="myInput" placeholder="Add some text&hellip;">
+    <input name="Submit"  type="submit" value="Submit">
+    <input name="Finish"  type="button" value="Finish" onclick ="interactionBegins()" >
+</form>
+ 
+<script>
+
+var input;    
+var dataset = [];
+var id = 0;
+var width = 960,
+    height = 500;
+var svgNodeCount = 0;    
+    
+var firstClickedNode = null;
+var nodeClicked = false;
+    
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+;
+
+var nodes = [ ],
+    node = svg.append("g").attr("class", "nodes")
+        .selectAll(".node");  
+    
+var text = svg.append("g").attr("class", "text")
+        .selectAll("text");
+
+var link = svg.append("g").attr("stroke", "#000").attr("stroke-width", 1.5).selectAll("path");
+    
+var links = [];
+    
+var simulation = d3.forceSimulation(nodes)
+    .force("charge", d3.forceManyBody().strength(-300))
+    .force("link", d3.forceLink(links).distance(50))
+    .force("x", d3.forceX())
+    .force("y", d3.forceY())
+    .alphaTarget(0.5)
+    .force("r", d3.forceRadial(100))
+    .force("center", d3.forceCenter(width / 2, height / 2))
+    .on("tick", tick);   
+       
+svg.on("mouseup", mouseUp);
+    
+function enter(){
+    input = document.getElementById("myInput").value; 
+    console.log(input); 
+    drawNodes(input);
+    return false;
+}
+
+function drawNodes(name){
+   var item = {name, id}
+   
+   id ++;
+   d3.select
+   nodes.push(item);
+   
+    
+    node = node.data(nodes);
+    
+    node = node.enter()
+      .append("circle")
+      .attr("class", "node")
+      .attr("r", 10)
+//      .attr("id", function(d){ return (svgNodeCount++); })
+      .merge(node)
+      .on("mousedown", makeLinks)
+    ;
+    
+    text = text.data(nodes);
+    
+    text = text.enter().append("text")
+        .attr("x", 8)
+        .attr("y", ".31em")
+        .text(function(d) { return d.name })
+        .merge(text)
+    ;
+
+    console.log("restarted"); 
+    console.log(node);
+    
+    simulation.nodes(nodes);
+    simulation.restart();
+    
+    document.getElementById("myInput").value = " ";
+
+}
+
+function interactionBegins() {
+ 
+   for (i=0; i<nodes.length; i++) {
+       nodes[i].id = i;
+        }   
+    console.log(nodes);
+    node = node.attr("id", function(d){ return (svgNodeCount++); });
+    d3.selectAll("input")
+        .style("display", "none");
+    console.log("interaction");
+}
+    
+function makeLinks() {
+    thisNode = this;
+//    console.log("Node ID clicked is "+this.id);
+    nodeClicked = true;
+        links.forEach(function(d){
+            if (d.source.id == thisNode.id){
+                console.log("loop"); 
+                nodeClicked = false; 
+            }
+        })  
+
+    // CASE ONE: if it's a new node
+    if (firstClickedNode == null) {
+        d3.select(thisNode).transition()
+            .style("fill", "black");
+        firstClickedNode = thisNode;
+        console.log("firstClickedNode is "+firstClickedNode.id);
+    } 
+
+    // CASE TWO: if clicked on itself  
+    else if (firstClickedNode == thisNode){
+        console.log("cannot connect to oneself");  
+    }
+    // CASE THREE & FOUR, forming links
+    else {
+        mouseDown(nodes[firstClickedNode.id], nodes[this.id]);
+        d3.select(thisNode).transition()
+            .style("fill", "black")
+                .attr("r", 34)
+            .transition()
+              .attr("r", 10);  
+        console.log("new link from"+ firstClickedNode.id + "to" + this.id );
+        firstClickedNode = thisNode;     
+        // if the selected link is in the array links already as source// loop formed, can stop drawing  
+        
+        links.forEach(function(d){
+            if (d.source.id == thisNode.id){
+                console.log("loop"); 
+                nodeClicked = false; 
+            }
+        })      
+    }
+}
+
+    
+// MOUSE DOWN to create path
+function mouseDown(node1, node2) {
+  // Updating data
+  links.push({source: node1, target: node2});
+
+    
+  // drawing lines:
+  link = link.data(links, function(d) { return d.source.id + "-" + d.target.id; });
+  link.exit().remove();
+  link = link.enter().append("path").attr("class", "link").attr("marker-end", "url(#end)").merge(link);
+
+  // Update and restart the simulation.
+  simulation.nodes(nodes);
+  simulation.force("link").links(links);
+  simulation.alpha(1).restart();
+    
+}
+
+// MOUSE UP to reset first node
+function mouseUp() {
+  console.log("mouseUp");
+  if (nodeClicked == false) {
+    console.log("1st node nulled, restart");
+    firstClickedNode = null;
+  }
+//  nodeClicked = false;
+} 
+
+
+function tick() {
+  node.attr("cx", function(d) { return d.x; })
+      .attr("cy", function(d) { return d.y; });
+  link.attr("d", linkArc);    
+  text.attr("transform", transform);    
+}
+
+function transform(d) {
+  return "translate(" + d.x + "," + d.y + ")";
+}    
+
+    
+function linkArc(d) {
+  var dx = d.target.x - d.source.x,
+      dy = d.target.y - d.source.y,
+      dr = Math.sqrt(dx * dx + dy * dy);
+  return "M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 0,1 " + d.target.x + "," + d.target.y;
+}
+
+svg.append("defs").selectAll("marker")
+    .data(["end"])
+  .enter().append("marker")
+    .attr("id", function(d) { return d; })
+    .attr("viewBox", "0 -5 10 10")
+    .attr("refX", 15)
+    .attr("refY", -1.5)
+    .attr("markerWidth", 6)
+    .attr("markerHeight", 6)
+    .attr("orient", "auto")
+    .style("fill", "steelblue")
+  .append("path")
+    .attr("d", "M0,-5L10,0L0,5");    
+    
+</script>
+
+</body>
+</html>
