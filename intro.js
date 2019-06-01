@@ -65,11 +65,7 @@ var page1 = $("#page1"),
     page7 = $("#page7"),
     page8 = $("#page8"),
     page9 = $("#page9"),
-    page10 = $("#page10"),
-    page11 = $("#page11"),
-    page12 = $("#page12"),
-    page13 = $("#page13"),
-    page14 = $("#page14");
+    page10 = $("#page10");
 
 var centralContents = [
     page1,
@@ -81,11 +77,7 @@ var centralContents = [
     page7,
     page8,
     page9,
-    page10,
-    page11,
-    page12,
-    page13,
-    page14
+    page10
 ]
 
 console.log("jquery loaded")
@@ -131,10 +123,6 @@ function switchCentralContent(){
     page8.hide();
     page9.hide();
     page10.hide();
-    page11.hide();
-    page12.hide();
-    page13.hide();
-    page14.hide();
     
     centralContents[pageNumber].show();
     if(pageNumber == 0){
