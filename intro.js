@@ -82,8 +82,10 @@ var centralContents = [
 
 console.log("jquery loaded")
 $(document).ready(function(){
-    console.log("document ready")
+    console.log("document ready");
+    
     switchCentralContent();
+    
 });
 
 backButton.click(function () {
@@ -95,9 +97,16 @@ nextButton.click(function () {
     // console.log(thoughtsForms)
 })
 
+if(e.keyCode == 39) { // right
+    nextStep("nextButton");
+}
+if(e.keyCode == 37) { // left
+    previousStep("backButton");
+}
+
 function nextStep(trigger) {
     pageNumber += 1;
-    switchCentralContent()    
+    switchCentralContent()      
 }
 
 function previousStep(trigger) {
@@ -105,10 +114,10 @@ function previousStep(trigger) {
     switchCentralContent();
 }
 
-function textUpdate() {
-    var text = texts[textNumber - 1]
-    ().text(text)
-}
+//function textUpdate() {
+//    var text = texts[textNumber - 1]
+//    ().text(text)
+//}
 
 function switchCentralContent(){
     console.log("hidden");
@@ -128,6 +137,7 @@ function switchCentralContent(){
     if(pageNumber == 0){
         endBeginning.show();
         backButton.hide();
+        $("#pagecounter").text(" ");
     }
 //    else if(pageNumber == 4) {
 //        node = node.data(tutorialNodes).enter()
@@ -139,6 +149,7 @@ function switchCentralContent(){
     else{
         endBeginning.hide();
         backButton.show();
+        $("#pagecounter").text(pageNumber);
     }
 }
 

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MINDSCAPER: Mental Models Visualized</title> 
+    <script src="d3/d3.min.js"></script>
+    <script type="text/javascript" src="jquery-3.4.1.min.js"></script> 
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+    
+<body>
+<header>
+        <img src = "data/logo.png">
+        <nav>
+            <ul>
+                <li><a href = "index.html">Tutorial</a></li>
+                <li><a href = "demo.html">Demo</a></li>
+                <li><a href = "#science">Science</a></li>
+            </ul>
+        </nav>
+</header>    
+
+   
+<guide>
+    <p id="theGuides">  </p>
+<!--    <p id='actionGuide'>click the next circle</p>-->
+</guide>    
+
+<page-counter id="pagecounter">
+    <p id="pageNumber"> </p>
+</page-counter>     
+    
+<instruction>
+    <central-content> 
+        <demo> 
+            <baseline id = page8> 
+            <h2> Why do you <i>value</i> <i>nature</i>? </h2>
+<!--                <p> Think deeply and seriously. Write down anything  comes up to your mind with honesty (can be personal, philosophical, or emotional... the freedom is yours) and click the "submit" button or "enter" key to see the thought pops to the screen. Press "finish" when you feel like you are done and then press "next". </p>-->
+
+
+            <form name="Baseline Generation" onSubmit="return enter()">
+                <input type="text" id="myInput" placeholder="Add some text&hellip;">
+                <input name="Submit"  type="submit" value="Submit">
+                <input name="Finish"  type="button" value="Finish" onclick ="interactionBegins()">
+            </form>
+            <p id="nodeCounter"> </p>
+            </baseline> 
+<!--
+            <flow id = page9>
+                <p>Imagine your thinking is the river that flows in one direction... Choose one thought to start with, connect it to the next, to which it naturally <i>flows</i> or relates. Repeat this to let the river flow to the next thought, and the next thought until the river forms a loop. Then, we will start a <i>new river</i> and do this again.  </p>
+                <p><i> Be careful you cannot change or delete (for now)...</i> :) </p>
+            </flow>
+-->
+<!--
+            <analysis id = page10>
+                The graph analysis is as follows
+            </analysis>
+-->
+        </demo>       
+    </central-content>    
+</instruction> 
+  
+    
+</body>
+    
+<script src="main.js"></script> 
+   
+
+    
+</html>

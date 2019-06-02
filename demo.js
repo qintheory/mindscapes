@@ -29,6 +29,7 @@ var text = svg.append("g").attr("class", "text")
 var link = svg.append("g").attr("stroke", "#000").attr("stroke-width", 1.5).selectAll("path");
     
 var links = [];
+var line;
     
 // DEFINING Arrows on the links/arcs    
 svg.append("defs").selectAll("marker")
@@ -103,6 +104,8 @@ function drawNodes(name){
     simulation.nodes(nodes);
     simulation.restart();
     
+        
+    $("#nodeCounter").text("Node Count: " + id);
     document.getElementById("myInput").value = " ";
 
 }
@@ -116,6 +119,9 @@ function interactionBegins() {
         .style("display", "none");
     
     console.log("interaction");
+    
+    switchCentralContent();
+    
 
 }
 
@@ -182,13 +188,14 @@ function makeLinks() {
         console.log("new link from"+ firstClickedNode.id + "to" + this.id );
         firstClickedNode = thisNode;     
         // if the selected link is in the array links already as source// loop formed, can stop drawing  
-        
         links.forEach(function(d){
             if (d.source.id == thisNode.id){
                 console.log("loop"); 
                 nodeClicked = false; 
             }
-        })      
+        })
+        
+        
     }
 }
    
@@ -205,7 +212,7 @@ function mouseDown(node1, node2) {
   // Update and restart the simulation.
   simulation.nodes(nodes);
   simulation.force("link").links(links);
-  simulation.alpha(1).restart();
+  simulation.alpha(1).restart(); 
     
 }
 
@@ -218,6 +225,7 @@ function mouseUp() {
   }
 //  nodeClicked = false;
 } 
+
 
 // FORCE TRANSFORMATION    
 function tick() {
