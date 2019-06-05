@@ -247,3 +247,35 @@ line {
      stroke-width: 2px;
      stroke-linecap: round;
 }
+
+textarea {
+    -webkit-appearance: none;
+    border: none;
+    margin: 1vw 0px 0px 0px;
+    width: 36vw;
+    background-color: rgb(240,240,240);
+    padding: 4px;
+}
+
+.form-item {
+    margin: 2vh 0vw;
+
+    display: block;
+    width: 36vw;
+
+    font-weight: 200;
+}
+
+.form-item input {
+    margin: 5px 0px 5px 0px;
+    box-sizing: border-box;
+    width: auto;
+}
+
+.questionaire {
+    padding-top: 30px;
+}
+
+label {
+    margin-right: 15px;
+}
