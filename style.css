@@ -2,6 +2,18 @@
   box-sizing: border-box;
 }
 
+
+@font-face {
+    font-family: "Moon";
+    src: url("fonts/Moon Light.otf);
+}
+
+
+@font-face {
+    font-family: "Moon Bold";
+    src: url("fonts/Moon Bold.otf);
+}
+
 body {
     font-family: "roberto"; 
     line-height: 160%; 
