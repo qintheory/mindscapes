@@ -5,13 +5,13 @@
 
 @font-face {
     font-family: "Moon";
-    src: url("fonts/Moon Light.otf);
+    src: url("fonts/Moon Light.otf");
 }
 
 
 @font-face {
     font-family: "Moon Bold";
-    src: url("fonts/Moon Bold.otf);
+    src: url("fonts/Moon Bold.otf");
 }
 
 body {
