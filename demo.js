@@ -474,7 +474,7 @@ $("#analysis-button").click(function(){
     $("analysis").show();
     $("guide").hide();
     $("#questionaire").show();
-    var graphAnalysis = links;
+//    var graphAnalysis = links;
     analysis(links);
 //    $("")
 });
@@ -490,7 +490,8 @@ function untangle(){
     
     
 //    data-netlify="true"
-    var graphAnalysis = JSON.stringify(links);
+      var graphAnalysis = JSON.stringify(links);
+     $("#graph-analysis").text(graphAnalysis);
 //    console.log(graphAnalysis);
 
 }
