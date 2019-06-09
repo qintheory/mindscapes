@@ -126,7 +126,8 @@ $("#button-about").click(function(){
 
 $("#button-tutorial").click(function(){
     $("tutorial").toggle(function(){
-        $("#button-tutorial").toggleClass("active");
+    document.getElementById('vid1').play();
+    $("#button-tutorial").toggleClass("active");
     });
     $("#button-about").removeClass("active");
     $("#button-demo").removeClass("active");
@@ -171,6 +172,9 @@ nextButton.click(function () {
 function nextStep(trigger) {
     pageNumber += 1;
     switchCentralContent()  
+    if(pageNumber == 2) {
+        document.getElementById('vid2').play();
+    }
     if(pageNumber == 4) {
         nextButton.hide();
     }
