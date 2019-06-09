@@ -430,8 +430,9 @@ function mouseUp() {
         //disable makeLinks
         node.on("mousedown", null)
 //            .on("dblclick", null);
+        untangle();  
         $("#nodeCounter").text("Your nodes are all connected! Press the 'analysis' button" ) 
-        $("#analysis-button").text("analysis");    
+        $("#analysis-button").text("analysis");   
       } 
   }
   
@@ -473,8 +474,8 @@ $("#analysis-button").click(function(){
     $("analysis").show();
     $("guide").hide();
     $("#questionaire").show();
-    untangle(); 
     var graphAnalysis = links;
+    analysis(links);
 //    $("")
 });
 
@@ -487,7 +488,6 @@ function untangle(){
         .on("drag", dragged)
         .on("end", dragended));
     
-    analysis(links);
     
 //    data-netlify="true"
     var graphAnalysis = JSON.stringify(links);

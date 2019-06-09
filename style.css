@@ -186,6 +186,10 @@ playground {
 	align-items: flex-start;
 }
 
+#project-intro{
+    width: 50vw;
+}
+
 guide {
     position: fixed;
     max-width: 40vw;
