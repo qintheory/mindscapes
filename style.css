@@ -117,8 +117,8 @@ holder{
     align-content: stretch;
 }
 
-quote {
-    display: none;
+#quote {
+    width:70vw;
 }
 
 central-content {

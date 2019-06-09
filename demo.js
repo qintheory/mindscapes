@@ -170,7 +170,10 @@ nextButton.click(function () {
 
 function nextStep(trigger) {
     pageNumber += 1;
-    switchCentralContent()      
+    switchCentralContent()  
+    if(pageNumber == 4) {
+        nextButton.hide();
+    }
 }
 
 function previousStep(trigger) {
@@ -184,7 +187,9 @@ function switchCentralContent(){
     page3.hide();
     page4.hide();
     page5.hide();
+    
     centralContents[pageNumber].show();
+    
     if(pageNumber == 0){
         endBeginning.show();
         backButton.hide();
@@ -193,6 +198,7 @@ function switchCentralContent(){
     else{
         endBeginning.hide();
         backButton.show();
+        nextButton.show();
         $("#pagecounter").text(pageNumber);
     }    
 }
