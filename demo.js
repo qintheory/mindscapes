@@ -1,18 +1,29 @@
 var input;    
-
-var width = 1260,
-    height = 800;
+var time, date1, date2;
 
 // numerate the nodes    
-var id = 0;    
+var id = 0;   
+var size = 1;
 var svgNodeCount = 0;    
+var nodeNum;
     
-var firstClickedNode = null;
+var previousClick = null;
 var nodeClicked = false;
-    
-var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height)
+var loopFormed = false;
+var nodeRepeated = false;
+var connector = [];
+var train = [];
+var streams = [];
+var nowClick;
+
+var width = 400;
+var height = 400;
+var svg = d3.select("playground").insert("svg")
+            .attr("width", width)
+            .attr("height", height)
+//            .call(d3.zoom().on("zoom", function () {
+//              svg.attr("transform", d3.event.transform)
+//      }))
 ;
 
 // DEFINE NODES AND TEXTS    
@@ -22,14 +33,30 @@ var nodes = [ ],
 
 var practice = [{name: 1}, {name: 2}, {name: 3}, {name: 4}];
     
-var text = svg.append("g").attr("class", "text")
+var text = svg.append("g").attr("class", "texts")
         .selectAll("text");
 
 // DEFINE LINKS    
 var link = svg.append("g").attr("stroke", "#000").attr("stroke-width", 1.5).selectAll("path");
     
 var links = [];
-var line;
+
+
+//TUTORIAL SECTION jQuery
+var nextButton = $("#next"),
+    backButton = $("#goback");
+
+var endBeginning = $("#end-beginning");
+
+var pageNumber = 0;
+
+var helpAnswers = [
+    "I am here to answer some potential questions.",
+    "",
+    "(our thought processes about how the world works"
+]
+
+//var line;
     
 // DEFINING Arrows on the links/arcs    
 svg.append("defs").selectAll("marker")
@@ -46,11 +73,10 @@ svg.append("defs").selectAll("marker")
   .append("path")
     .attr("d", "M0,-5L10,0L0,5");    
         
-
 // DEFINE FORCES    
 var simulation = d3.forceSimulation(nodes)
     .force("charge", d3.forceManyBody().strength(-300))
-    .force("link", d3.forceLink(links).distance(50))
+//    .force("link", d3.forceLink(links).distance(50))
     .force("x", d3.forceX())
     .force("y", d3.forceY())
     .alphaTarget(0.5)
@@ -58,173 +84,463 @@ var simulation = d3.forceSimulation(nodes)
     .force("center", d3.forceCenter(width / 2, height / 2))
     .on("tick", tick);   
 
+var page1 = $("#tut1"),
+    page2 = $("#tut2"),
+    page3 = $("#tut3"),
+    page4 = $("#tut4"),
+    page5 = $("#tut5");
+
+var centralContents = [
+    page1,
+    page2,
+    page3,
+    page4,
+    page5
+    ]
+
+$(document).ready(function(){
+    console.log("document ready");
+    $("about").hide();
+    $("tutorial").hide();
+    $("demo").hide();
+    $("#questionaire").hide();
+//    switchCentralContent();  
+});
+
+$("demo").ready(function(){
+    $("#analysis-button").hide();
+    $("analysis").hide();
+//    switchCentralContent();  
+});
+
+
+$("#button-about").click(function(){
+    $("about").toggle(function(){
+        $("#button-about").toggleClass("active");
+    });
+    $("#button-tutorial").removeClass("active");
+    $("#button-demo").removeClass("active");
+    $("tutorial").hide();
+    $("demo").hide();
+})
+
+$("#button-tutorial").click(function(){
+    $("tutorial").toggle(function(){
+        $("#button-tutorial").toggleClass("active");
+    });
+    $("#button-about").removeClass("active");
+    $("#button-demo").removeClass("active");
+    $("about").hide();
+    $("demo").hide();
+    
+    switchCentralContent();
+})
+
+$("#button-demo").click(function(){
+    $("quote").toggle();
+    $("demo").toggle(function(){
+        $("#button-demo").toggleClass("active");
+    });
+    $("#button-tutorial").removeClass("active");
+    $("#button-about").removeClass("active");    
+    $("about").hide();
+    $("tutorial").hide();
+})
+
+$("#button-start-demo").click(function(){
+//    $("quote").toggle();
+    $("demo").show();
+    $("#button-tutorial").removeClass("active");
+    $("#button-about").removeClass("active");    
+    $("about").hide();
+    $("tutorial").hide();
+})
+
+
+//tutorial page control
+
+backButton.click(function () {
+    previousStep("backButton");
+})
+
+nextButton.click(function () {
+    nextStep("nextButton");
+    // console.log(thoughtsForms)
+})
+
+function nextStep(trigger) {
+    pageNumber += 1;
+    switchCentralContent()      
+}
+
+function previousStep(trigger) {
+    pageNumber -= 1;
+    switchCentralContent();
+}
+
+function switchCentralContent(){
+    page1.hide();
+    page2.hide();
+    page3.hide();
+    page4.hide();
+    page5.hide();
+    centralContents[pageNumber].show();
+    if(pageNumber == 0){
+        endBeginning.show();
+        backButton.hide();
+        $("#pagecounter").text(" ");
+    }
+    else{
+        endBeginning.hide();
+        backButton.show();
+        $("#pagecounter").text(pageNumber);
+    }    
+}
+
+
+
 // enabling mouse up at all times   
 svg.on("mouseup", mouseUp);
+//restart();
+
+
+
+
+
+
+
 
 // MAKE NODES FROM USER INPUT    
 function enter(){
     input = document.getElementById("myInput").value; 
-    drawNodes(input);
+    drawNode(input);
     return false;
 }
   
-function drawNodes(name){
-   var item = {name, id}
-   id ++;
+function drawNode(name){
+   var item = {name, id, size};
+//   id ++;
    d3.select
    nodes.push(item);
    
+   updateNodes();  
+    $("#theGuides").html("<u>Drag</u> to move the node <br/> <u>Doubleclick</u> to Delete Node");
+    document.getElementById("myInput").value = "";
     
+    $("#finish-button").text("finish");
+    
+}
+
+function deleteNode(d, i) {
+    nodes.splice(i, 1);
+    console.log("node deleted!")
+    
+    d3.event.stopPropagation();
+    updateNodes();
+}
+
+function updateNodes(d, i) {
+    console.log("update nodes")
+    
+    // update id # of the node
+    nodes.forEach(function(d, i){
+       d.id = i;
+    })
+    
+    // update data for the nodes
     node = node.data(nodes);
+    text = text.data(nodes);
+    
+    node.exit()
+        .remove();
     
     node = node.enter()
       .append("circle")
       .attr("class", "node")
       .attr("r", 10)
-      .attr("id", function(d){ return (svgNodeCount++); })
+      .attr("id", function(d){ return d.id; })
+      .style("stroke-opacity", 1)
       .merge(node)
-//      .call(d3.drag()
-//        .on("start", dragstarted)
-//        .on("drag", dragged)
-//        .on("end", dragended))
+        .call(d3.drag()
+        .on("start", dragstarted)
+        .on("drag", dragged)
+        .on("end", dragended))
+      .on('dblclick', deleteNode)
     ;
     
-    text = text.data(nodes);
-    
-    text = text.enter().append("text")
-        .attr("x", 8)
-        .attr("y", ".31em")
-        .text(function(d) { return d.name })
-        .merge(text)
-    ;
 
-    console.log("restarted"); 
-    console.log(node);
+    text.exit()
+        .remove();
+    
+    text = text
+        .enter()
+        .append("text")
+            .attr("class", "text")
+            .attr("x", 8)
+            .attr("y", ".31em")
+            .merge(text)
+            .attr("id", function(d){ return d.id; })
+            .text(function(d) { return d.name })
+    ;
     
     simulation.nodes(nodes);
     simulation.restart();
-    
-        
-    $("#nodeCounter").text("Node Count: " + id);
-    document.getElementById("myInput").value = " ";
-
+    $("#nodeCounter").text("Node Count: " +  nodes.length);
 }
 
 // ENABLING LINK MAKING FROM NODES     
-function interactionBegins() {
- 
-    node = node.on("mousedown", makeLinks);
+function linkingBegins() {
+    node = node
+        .on('mousedown.drag', null)
+        .on("mousedown", makeLinks)
+//        .on("dblclick", deleteLink)
+        ;
     
     d3.selectAll("input")
         .style("display", "none");
-    
+    $("#theGuides").html("<u>Click</u> on the node to make connections <br/> <s>Drag</s> and <s>Doubleclick</s> are disabled <br/> <u> You can only start a new string when a loop </u>");
+    $("#nodeCounter").html("Start a new stream of consciousness");
     console.log("interaction");
-    
-    switchCentralContent();
-    
+    $("#finish-button").hide();
+    $("#analysis-button").show();
 
 }
 
-// ENABLING LINKS MAKING ON DIFFERENT LINKS  
-
-//function practiceLinking() {
-//    node = node.data(practice)
-//        .enter()
-//      .append("circle")
-//      .attr("class", "node")
-//      .attr("r", 10)
-//      .attr("id", function(d){ return (svgNodeCount++); })
-//      .merge(node)
-//      .on("mousedown", makeLinks)
-////      .call(d3.drag()
-////        .on("start", dragstarted)
-////        .on("drag", dragged)
-////        .on("end", dragended))
-//    ;
-//    
-//    text = text.data(nodes);
-//    
-//    text = text.enter().append("text")
-//        .attr("x", 8)
-//        .attr("y", ".31em")
-//        .text(function(d) { return d.name })
-//        .merge(text)
-//    ;
-//}
 
 function makeLinks() {
-    thisNode = this;
-//    console.log("Node ID clicked is "+this.id);
-    
-    //Check if the node is 
+// console.log("Node ID clicked is "+this.id);
+    nowClick = this;
     nodeClicked = true;
-        links.forEach(function(d){
-            if (d.source.id == thisNode.id){
-                console.log("loop"); 
-                nodeClicked = false; 
-            }
-        })  
 
+    // check if the clicked node is repeated
+    links.forEach(function(d){
+        if (d.source.id == nowClick.id & loopFormed == true){
+            console.log("nodes aready connected, change node"); 
+            nodeClicked = false;
+            nodeRepeated = true;
+            $("#nodeCounter").text("Repeated Node Detected")
+        }
+        else {
+            nodeRepeated = false;
+        }
+    })
+    
     // CASE 1: if it's a new node
-    if (firstClickedNode == null) {
-        d3.select(thisNode).transition()
-            .style("fill", "black");
-        firstClickedNode = thisNode;
-        console.log("firstClickedNode is "+firstClickedNode.id);
+    if (previousClick == null & nodeRepeated == false) {
+        previousClick = nowClick;
+        train.push(nowClick.id);
+        selectedNode(nowClick);
+        // register time
+        date1 = new Date().getTime();
     } 
 
     // CASE 2: if clicked on itself  
-    else if (firstClickedNode == thisNode){
-        console.log("cannot connect to oneself");  
+    else if (previousClick == nowClick){
+        console.log("cannot connect to oneself"); 
+        deselectNode(nowClick);
+        nodeClicked = false;
+        $("#nodeCounter").text("Nothing is selected")
     }
+    
     // CASE 3 & 4, forming links
     else {
-        mouseDown(nodes[firstClickedNode.id], nodes[this.id]);
-        d3.select(thisNode).transition()
-            .style("fill", "black")
-                .attr("r", 34)
-            .transition()
-              .attr("r", 10);  
-        console.log("new link from"+ firstClickedNode.id + "to" + this.id );
-        firstClickedNode = thisNode;     
-        // if the selected link is in the array links already as source// loop formed, can stop drawing  
-        links.forEach(function(d){
-            if (d.source.id == thisNode.id){
-                console.log("loop"); 
-                nodeClicked = false; 
+        // register time
+        date2 = new Date().getTime();
+        time = (date2 - date1) / 1000;
+        date1 = date2;
+        
+        mouseDown(nodes[previousClick.id], nodes[nowClick.id], time);
+        
+        console.log("new link from"+ previousClick.id + "to" + nowClick.id );
+        
+        deselectNode(previousClick);
+        selectedNode(nowClick);
+        train.push(nowClick.id);
+        console.log(train);
+        //check if loops
+        links.forEach(function(d, i){
+            if (d.source.id == nowClick.id){
+                loopFormed = true;
+                train.push(streams);
+                console.log("loop formed or entered, initiate nodes"); 
+                $("#nodeCounter").text("Loop formed. Now start a new stream.")
+                d3.select(nowClick).style("fill", "aliceblue");
+                nodeClicked = false;
+                deselectNode(nowClick);
+//                train.length = 0;
+            }
+            else {
+                previousClick = nowClick;
             }
         })
         
-        
+
     }
 }
-   
-// MOUSE DOWN to create a link
-function mouseDown(node1, node2) {
-  // Updating data
-  links.push({source: node1, target: node2});
+
+function selectedNode(d) {
     
+    // selected node - colour highlighted
+    d3.select(d).transition()
+            .style("fill", "coral")
+                .attr("r", 34)
+            .transition()
+              .attr("r", 10)
+    ;  
+    node = node.style("fill", "aliceblue").merge(node);
+   
+    // 
+     $("#nodeCounter").text(nodes[d.id].name + " reminds me of")
+}
+
+function deselectNode(d) {
+    
+    // unhighlight the previous node
+    d3.select(d)
+        .attr("r", 10)
+        .style("fill", "aliceblue")
+        .merge(node)
+    ; 
+    
+//    console.log("innitiate node" + d.id)
+//    $("#nodeCounter").text("Nothing is selected")
+    
+}
+ 
+
+//node.style("fill", "#powderblue").merge(node);    
+// MOUSE DOWN to create a link
+function mouseDown(node1, node2, time) {
+  // Updating data
+  links.push({source: node1, target: node2, time: time});
   // drawing lines:
-  link = link.data(links, function(d) { return d.source.id + "-" + d.target.id; });
+  updateLink();    
+}
+
+// MOUSE UP to reset first node
+function mouseUp() {
+    
+  console.log("mouseUp");
+  if (nodeClicked == false) {
+      console.log("previous node nulled, restart");
+      previousClick = null;
+      if (links.length == nodes.length) {
+        console.log("linking finished");
+//        node.style("fill", "#ccc"); 
+        //disable makeLinks
+        node.on("mousedown", null)
+//            .on("dblclick", null);
+        $("#nodeCounter").text("Your nodes are all connected! Press the 'analysis' button" ) 
+        $("#analysis-button").text("analysis");    
+      } 
+  }
+  
+} 
+
+//function deleteLink() {
+//    console.log("doubleclicked")
+//    links.pop();
+////    var lastCLickedid = links[links.length -1].target.id;
+////    d3.select(".node: #lastCLickedid").style("fill", "coral");
+////        return l.source.id != d.id && l.target.id != d.id; 
+////    var lastId = links[links.length-1].target.id;
+//    d = this;
+//    d3.select(d)
+//        .style("fill", "aliceblue")
+//        .merge(node)
+//        ; 
+//    
+//    d3.event.stopPropagation();
+//    updateLink();
+////    nodeClicked = false;
+////    previousClick = null; 
+//    
+//}
+
+function updateLink() {
+    link = link.data(links, function(d) { return d.source.id + "-" + d.target.id; });
   link.exit().remove();
   link = link.enter().append("path").attr("class", "link").attr("marker-end", "url(#end)").merge(link);
 
   // Update and restart the simulation.
   simulation.nodes(nodes);
-  simulation.force("link").links(links);
+  // simulation.force("link").links(links);
   simulation.alpha(1).restart(); 
     
 }
 
-// MOUSE UP to reset first node
-function mouseUp() {
-  console.log("mouseUp");
-  if (nodeClicked == false) {
-    console.log("1st node nulled, restart");
-    firstClickedNode = null;
-  }
-//  nodeClicked = false;
-} 
+$("#analysis-button").click(function(){
+    $("analysis").show();
+    $("guide").hide();
+    $("#questionaire").show();
+    untangle(); 
+    var graphAnalysis = links;
+//    $("")
+});
+
+function untangle(){
+    simulation.force("link", d3.forceLink(links).distance(linkDistance));
+    console.log("untangled!")
+    //innitiate dragging
+    node.call(d3.drag()
+        .on("start", dragstarted)
+        .on("drag", dragged)
+        .on("end", dragended));
+    
+    analysis(links);
+    
+//    data-netlify="true"
+    var graphAnalysis = JSON.stringify(links);
+//    console.log(graphAnalysis);
+
+}
+
+$("#my-form").submit(function(e) {
+  e.preventDefault();
+
+var $form = $(this);
+  $.post($form.attr("action"), $form.serialize()).then(function() {
+    alert("Thank you!");
+  });
+});
+
+function linkDistance(d){
+    return 50 * d.time;
+}
+
+//function nodeSize(d) {
+//    return 5 * d;
+//}
+
+function analysis(links){
+    var ids = [];
+    var counts = [];
+    var n = 1
+    
+    links.forEach(function(d, i){
+        var item = d.target.id;
+        //if it's repeated
+        if (ids.includes(item)){
+            console.log("repeated")
+            var j = ids.indexOf(item);
+            counts[j] += 1;
+        }
+        else{
+            ids.push(item);
+            counts.push(n);
+        }
+        console.log(ids);
+        console.log(counts);
+    });
+    
+    ids.forEach(function(d, i){
+        nodes[d].size *= (counts[i]+0.5); 
+    })
+    
+    node.attr("r", function(d){return d.size * 5});
+
+//    loop.filter()
+}
 
 
 // FORCE TRANSFORMATION    
@@ -263,3 +579,7 @@ function dragged(d) {
 function dragended(d) {
   d3.select(this).classed("active", false);
 }
+
+//function zoomed() {
+//  container.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+//}

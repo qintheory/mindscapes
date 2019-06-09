@@ -1,50 +1,77 @@
-* {
+*{
   box-sizing: border-box;
 }
 
 body {
-    font-family: "helvetica"; 
+    font-family: "roberto"; 
     line-height: 160%; 
     font-size: 18px; 
     align-items: center;
     justify-content: center;
     margin-top: 80px;
     margin-bottom: 0;
+    background-color: midnightblue;
+    color: aliceblue;
 }
 
 svg {
     margin-top: 100px;
+    z-index: 10;
+/*    position: fixed;*/
 }
 
 h3 {
     font-family: moon;
 }
+
+h4 {
+    font: 15px moon;
+    
+}
+
+h5 {
+    font-size: 16px;
+    font-style: italic;
+}
+
+#myInput {
+    font-family: roberto;
+}
 header{
     position: fixed;
     width: 100%;
-    z-index: 10;
+    z-index: 8;
     
     top: 0;
     left: 0;
     right: 0;
-    height: 50px;
+    height: 200px;
     
-    background-color: white;
+    background-color: midnightblue;
     
     display: flex;
     align-items: center;
-    
-    box-shadow: 0 0 15px 0 grey;
+    justify-content: center;
+    flex-direction: column;
+/*    box-shadow: 0 0 15px 0 grey;*/
     font-family: moon;
 }
 
+
+
 header img{
-    height: 30px;
+    height: 140px;
     margin-left: 40px;
+    justify-content: center;
 }
 
 header * {
     display: inline;
+}
+
+heading {
+    padding: 15vw 2vw 0 5vh;
+    align-items: center;
 }
 
 #tutorialimg8{
@@ -59,110 +86,181 @@ header * {
     max-width: 100%;
 }
 
-header li{
-/*    display: inline-block;*/
-    text-transform: uppercase;
-    margin: 20px;
-}
-
-header li a{
-    color: black;
-    text-decoration: none;
-}
-
-header li:hover {
-  color: #DBE9EE;
-}
 
 input {
-    border: 1px dotted #ccc; 
-    background: white; 
-    font-family: "Baskerville"; 
+/*    border: 1px dotted #ccc; */
+    border: none;
+    background: transparent; 
+    font-family: Moon; 
     padding: 5px 5px; 
     font-size: 14px; 
     margin: 0 10px 0 0; 
-    color: black;
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+    color: aliceblue;
+/*    box-shadow: 5px 5px 10px rgba(0,0,0,0.1);*/
 }
 
-input:focus { 
-    background-color:yellow; 
+input:toggle { 
+/*    background-color:yellow; */
+    color: coral;
     outline: none;
 }
 
-central-content {
-    top: 0;
-    min-height: 12vh;
-    font-family: "coves";
-    font-weight: 500;
-    font-size: 22px;
-    background-color: white;
-    width: 50vw;
-    padding: 5vw 2vw 0 5vh;
-/*    margin-bottom: 2vh;*/
-    transition: 0.3s;
-
-/*    box-shadow: 5px 5px 10px rgba(0,0,0,0.1);*/
-
-    display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-items: center;
-	align-content: center;
-}
-
-.button {
-    min-height: 12vh;
-    font-family: "moon";
-    font-weight: 500;
-    background-color: white;
-    opacity: 0.5;
-/*    top: 100px;*/
-    width: 10vw;
-    margin-top: 100px;
-/*    margin: 0 2vw 2vh 2vw;*/
-/*    padding: 1vw;*/
-    transition: 0.3s;
-/*    box-shadow: 5px 5px 10px rgba(0,0,0,0.1);*/
-/*    border-radius: 5px;*/
-    cursor: pointer;
-    border: 4px solid white;
+holder{
+    position: absolute;
+    width: 100%;
 
     display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
 	justify-content: center;
 	align-items: center;
+    align-content: stretch;
+}
+
+quote {
+    display: none;
+}
+
+central-content {
+    position: relative;
+    z-index: 5;
+    width:100vw;
+    background: transparent;
+    padding: 15vw 2vw 0 5vh;
+    margin-bottom: 2vh;
+    transition: 0.3s;
+
+    display: flex;
+    flex-flow: row nowrap;
+	justify-content: flex-end;
+	align-items: center;
+    align-content: stretch;
+}
+
+
+.content {
+    position: absolute;
+    top: 20vh;
+    width: 80%;
+    background: midnightblue; 
+    display: flex;
+    flex-flow: row nowrap;
+	justify-content: center;
+    justify-items: stretch;
+	align-items: baseline;
 	align-content: center;
+    z-index: 8;
+}
+
+.hiding {
+    display: none;
+}
+
+#demo-content{
+    display: flex;
+    align-items: baseline;
+}
+
+.container {
+    font-family: "roberto";
+    background-color: transparent;
+    font-weight: 500;
+    font-size: 22px;
+    width: 100%;
+    margin-bottom: 2vh;
+    transition: 0.3s;
+    margin: 1vh 3vw 2vh 3vw;
+
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+playground {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+guide {
+    position: fixed;
+    max-width: 40vw;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+    z-index: 8;
+    opacity: 0.8;
+    line-height: 20px;
+} 
+
+analysis {
+    position: fixed;
+    font-size: 14px;
+    max-width: 40vw;
+    line-height: 16px;
+    padding: none;
+    
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+    align-content: flex-start;
+    
+    z-index: 8;
+    opacity: 0.7;
+}
+
+.feature {
+/*    padding-bottom:2px;*/
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    justify-items: center;
+}
+
+.feature h4 {
+    color: coral;
+    font-size: 14px;
+    width: 120px;
+}
+
+.button {
+/*    min-height: 12vh;*/
+    font-family: "moon";
+    font-weight: 500;
+    background-color: transparent;
+    opacity: 0.5;
+    width: 10vw;
+    transition: 0.3s;
+    cursor: pointer;
+    margin: 2vh 2vw 2vh 2vw;
+
+/*    display: flex;*/
+/*	justify-content: center;*/
+/*	align-items: center;*/
+
 }
 
 .button:hover {
     opacity: 1;
 }
 
-button-page1 {
-    
-}
-
-instruction {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    
-    display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: flex-start;
-    align-content: stretch;
+.active {
+    color: coral;
+    outline: none;
 }
 
 #pagecounter {
     position: absolute;
     bottom: 5vh;
     left: 5vh;
-    color: grey;
     font-family: moon;
     font-size: 36;
 }
@@ -185,10 +283,10 @@ instruction {
     height: 5vh;
     width: 5vh;
     border-radius: 2.5vh;
-    background-color: white;
+    background-color: transparent;
     border: 4px solid rgba(200,200,200, 1);
     box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
-    background: white;
+    background: transparent;
     padding-bottom:2px;
     cursor: pointer;
     transition: 0.2s;
@@ -208,7 +306,7 @@ instruction {
     width: 30vw;
     height: 20vh;
     display: block;
-    background: white;
+    background: transparent;
     border-radius: 2.5vh;
     opacity: 1;
     box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
@@ -217,11 +315,12 @@ instruction {
 
 #nodeCounter {
     font-size: 15px;
+    color: coral;
 }
 
 circle {
-    fill: #ccc;
-    stroke: #333;
+    fill: aliceblue;
+    stroke: aliceblue;
     stroke-width: 1.5px;
 }
 
@@ -230,15 +329,16 @@ h2{
 }
 
 text {
-      font: 10px sans-serif;
+      font: 15px "helvetica";
       pointer-events: none;
-      text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+/*      color: ;*/
+      text-shadow: 0 1px 0 aliceblue, 1px 0 0 aliceblue, 0 -1px 0 aliceblue, -1px 0 0 aliceblue;
       width: 5px;
 }
 
 .link {
       fill: none;
-      stroke: black;
+      stroke: steelblue;
       stroke-width: 1.5px;
 }
 
@@ -258,11 +358,10 @@ textarea {
 }
 
 .form-item {
+    font-size: 14px;
     margin: 2vh 0vw;
-
     display: block;
     width: 36vw;
-
     font-weight: 200;
 }
 
@@ -272,8 +371,21 @@ textarea {
     width: auto;
 }
 
-.questionaire {
-    padding-top: 30px;
+.questionaire-input {
+    border: 1px dotted #ccc; 
+    border: none;
+    background: white; 
+    font-family: Moon; 
+    padding: 5px 5px; 
+    font-size: 14px; 
+    margin: 0 10px 0 0; 
+    color: aliceblue;
+}
+questionaire {
+/*    padding-top: 30px;*/
+    width: 100%;
+    line-height: 15px;
+    background-color: midnightblue;
 }
 
 label {
