@@ -349,7 +349,7 @@ circle {
 }
 
 text {
-      font: 15px "helvetica";
+      font: 11px "helvetica";
       pointer-events: none;
 /*      color: ;*/
       text-shadow: 0 1px 0 aliceblue, 1px 0 0 aliceblue, 0 -1px 0 aliceblue, -1px 0 0 aliceblue;

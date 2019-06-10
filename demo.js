@@ -17,7 +17,7 @@ var streams = [];
 var nowClick;
 
 var width = 800;
-var height = 800;
+var height = 600;
 var svg = d3.select("playground").insert("svg")
             .attr("width", width)
             .attr("height", height)
@@ -486,7 +486,7 @@ $("#analysis-button").click(function(){
 });
 
 function untangle(){
-//    simulation.force("link", d3.forceLink(links).distance(linkDistance));
+    simulation.force("link", d3.forceLink(links).distance(50));
     console.log("untangled!")
     //innitiate dragging
     node.call(d3.drag()
