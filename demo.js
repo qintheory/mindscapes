@@ -17,7 +17,7 @@ var streams = [];
 var nowClick;
 
 var width = 800;
-var height = 600;
+var height = 500;
 var svg = d3.select("playground").insert("svg")
             .attr("width", width)
             .attr("height", height)
@@ -304,7 +304,7 @@ function linkingBegins() {
     
     d3.selectAll("input")
         .style("display", "none");
-    $("#theGuides").html("<u>Click</u> on the node to make connections <br/> <s>Drag</s> and <s>Doubleclick</s> are disabled <br/> <u> You can only start a new string when a loop </u>");
+    $("#theGuides").html("<u>Click</u> on the node to make connections <br/> <s>Drag</s> and <s>Doubleclick</s> are disabled <br/> <u> You can only start a new string when a loop is formed</u>");
     $("#nodeCounter").html("Start a new stream of consciousness");
     console.log("interaction");
     $("#finish-button").hide();
