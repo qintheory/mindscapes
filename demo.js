@@ -16,15 +16,12 @@ var train = [];
 var streams = [];
 var nowClick;
 
-var width = 400;
-var height = 400;
+var width = 800;
+var height = 800;
 var svg = d3.select("playground").insert("svg")
             .attr("width", width)
             .attr("height", height)
-//            .call(d3.zoom().on("zoom", function () {
-//              svg.attr("transform", d3.event.transform)
-//      }))
-;
+            ;
 
 // DEFINE NODES AND TEXTS    
 var nodes = [ ],
@@ -75,12 +72,12 @@ svg.append("defs").selectAll("marker")
         
 // DEFINE FORCES    
 var simulation = d3.forceSimulation(nodes)
-    .force("charge", d3.forceManyBody().strength(-300))
+    .force("charge", d3.forceManyBody().strength(-400))
 //    .force("link", d3.forceLink(links).distance(50))
     .force("x", d3.forceX())
     .force("y", d3.forceY())
     .alphaTarget(0.5)
-    .force("r", d3.forceRadial(100))
+    .force("r", d3.forceRadial(300))
     .force("center", d3.forceCenter(width / 2, height / 2))
     .on("tick", tick);   
 
@@ -237,8 +234,7 @@ function drawNode(name){
     $("#theGuides").html("<u>Drag</u> to move the node <br/> <u>Doubleclick</u> to Delete Node");
     document.getElementById("myInput").value = "";
     
-    $("#finish-button").text("finish");
-    
+    $("#finish-button").text("finish"); 
 }
 
 function deleteNode(d, i) {
@@ -347,9 +343,9 @@ function makeLinks() {
     // CASE 2: if clicked on itself  
     else if (previousClick == nowClick){
         console.log("cannot connect to oneself"); 
-        deselectNode(nowClick);
-        nodeClicked = false;
-        $("#nodeCounter").text("Nothing is selected")
+//        deselectNode(nowClick);
+//        nodeClicked = false;
+        $("#nodeCounter").text("cannot connect to oneself")
     }
     
     // CASE 3 & 4, forming links
@@ -490,7 +486,7 @@ $("#analysis-button").click(function(){
 });
 
 function untangle(){
-    simulation.force("link", d3.forceLink(links).distance(linkDistance));
+//    simulation.force("link", d3.forceLink(links).distance(linkDistance));
     console.log("untangled!")
     //innitiate dragging
     node.call(d3.drag()
@@ -591,6 +587,6 @@ function dragended(d) {
   d3.select(this).classed("active", false);
 }
 
-//function zoomed() {
-//  container.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
-//}
+function zoomed() {
+  container.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+}
