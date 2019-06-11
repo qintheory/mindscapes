@@ -159,8 +159,8 @@ central-content {
 
 
 .content {
-    position: absolute;
-    top: 20vh;
+    position: fixed;
+    top: 30vh;
     width: 80%;
     background: midnightblue; 
     display: flex;
@@ -182,7 +182,6 @@ central-content {
 }
 
 .container {
-    font-family: ;
     background-color: transparent;
     font-weight: 500;
     font-size: 22px;
@@ -225,7 +224,7 @@ guide {
 
 analysis {
     position: fixed;
-    font-size: 14px;
+    font-size: 12px;
     max-width: 40vw;
     line-height: 16px;
     padding: none;
@@ -351,8 +350,11 @@ circle {
 text {
       font: 11px "helvetica";
       pointer-events: none;
-/*      color: ;*/
+      color: aliceblue;
+/*
+      color: ;
       text-shadow: 0 1px 0 aliceblue, 1px 0 0 aliceblue, 0 -1px 0 aliceblue, -1px 0 0 aliceblue;
+*/
       width: 5px;
 }
 
