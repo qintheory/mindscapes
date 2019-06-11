@@ -482,6 +482,7 @@ $("#analysis-button").click(function(){
     $("#questionaire").show();
 //    var graphAnalysis = links;
     analysis(links);
+    $("#analysis-button").hide();
 //    $("")
 });
 
@@ -515,9 +516,9 @@ function linkDistance(d){
     return 50 * d.time;
 }
 
-//function nodeSize(d) {
-//    return 5 * d;
-//}
+function nodeSize(d) {
+    return 5 * d;
+}
 
 function analysis(links){
     var ids = [];

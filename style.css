@@ -159,7 +159,7 @@ central-content {
 
 
 .content {
-    position: fixed;
+    position: absolute;
     top: 30vh;
     width: 80%;
     background: midnightblue; 
@@ -210,7 +210,7 @@ playground {
 }
 
 guide {
-    position: fixed;
+    position: absolute;
     max-width: 40vw;
     display: flex;
 	flex-direction: column;
@@ -223,7 +223,7 @@ guide {
 } 
 
 analysis {
-    position: fixed;
+    position: absolute;
     font-size: 12px;
     max-width: 40vw;
     line-height: 16px;
