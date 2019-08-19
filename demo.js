@@ -123,8 +123,9 @@ $("#button-about").click(function(){
 
 $("#button-tutorial").click(function(){
     $("tutorial").toggle(function(){
-    document.getElementById('vid1').play();
+    document.getElementById('vid1').play();    
     $("#button-tutorial").toggleClass("active");
+    $("#button-tutorial").text("Tutorial");
     });
     $("#button-about").removeClass("active");
     $("#button-demo").removeClass("active");
@@ -133,6 +134,19 @@ $("#button-tutorial").click(function(){
     
     switchCentralContent();
 })
+
+$("#button-tutorial").hover(
+    function() {
+        var $this = $(this); // caching $(this)
+        $this.data('first time?', $this.text());
+        $this.text("Tutorial");
+    },
+    function() {
+        var $this = $(this); // caching $(this)
+        $this.text($this.data('first time?'));
+    }
+)
+
 
 $("#button-demo").click(function(){
     $("quote").toggle();
@@ -144,6 +158,18 @@ $("#button-demo").click(function(){
     $("about").hide();
     $("tutorial").hide();
 })
+
+$("#button-demo").hover(
+    function() {
+        var $this = $(this); // caching $(this)
+        $this.data('Old Friends', $this.text());
+        $this.text("Start Mindscaping");
+    },
+    function() {
+        var $this = $(this); // caching $(this)
+        $this.text($this.data('Old Friends'));
+    }
+)
 
 $("#button-start-demo").click(function(){
 //    $("quote").toggle();
