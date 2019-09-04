@@ -2,69 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>MINDSCAPER: Mental Models Visualized</title> 
-    <script src="d3/d3.min.js"></script>
+    <title>Mindscapes: Landscapes of the Mind</title> 
     <script type="text/javascript" src="jquery-3.4.1.min.js"></script> 
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="//d3js.org/d3.v4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../style.css">
 </head>
     
 <body>
 <header>
-        <img src = "data/logo.png">
-        <nav>
-            <ul>
-                <li><a href = "index.html">Tutorial</a></li>
-                <li><a href = "demo.html">Demo</a></li>
-                <li><a href = "water.html">Water</a></li>
-            </ul>
+        <img src = "data/logo1.png">
+       
+        <nav id = navbar>
+            <li><a href="tutorial.html">Tutorial</a></li>
+            <li ><a href="demo.html">Check In</a></li>
+            <li ><a href="mindscapes.html">Mindscapes</a></li>
+            <li><a  href = "#our-story">About</a></li>
         </nav>
-</header>    
-
+</header>
    
-<guide>
-    <p id="theGuides">  </p>
-<!--    <p id='actionGuide'>click the next circle</p>-->
-</guide>    
-
-<page-counter id="pagecounter">
-    <p id="pageNumber"> </p>
-</page-counter>     
-    
-<instruction>
-    <central-content> 
-        <demo> 
-            <baseline id = page8> 
-            <h2> Why do you <i>value</i> <i>nature</i>? </h2>
-<!--                <p> Think deeply and seriously. Write down anything  comes up to your mind with honesty (can be personal, philosophical, or emotional... the freedom is yours) and click the "submit" button or "enter" key to see the thought pops to the screen. Press "finish" when you feel like you are done and then press "next". </p>-->
-
-
-            <form name="Baseline Generation" onSubmit="return enter()">
+<holder>
+    <central-content class = "content"> 
+        <check-in class = "container">   
+            <h1>How are you feeling now? </h1>   
+            <box class = "box">
+             <button class = "button-mood">highlights</button>
+             <button class = "button-mood">lowlights</button>
+             <button class = "button-mood">freerides</button>
+            </box> 
+        </check-in> 
+        <emotions class = "container">   
+            <h1>How would you describe your emotions?</h1>   
+            <box class = "box">
+<!--
+                <input type="text" id="myInput" placeholder="Title">
+                
+                <input type="text" id="myInput" placeholder="Add some description">
+                <input name="Submit"  type="submit" value="Submit">
+-->
+                
+            </box> 
+            <button id = "launch-demo">Start mindscaping</button>
+        </emotions> 
+        <demo class = "container">   
+            <form name="Baseline Generation" autocomplete="off" onSubmit="return enter()">
                 <input type="text" id="myInput" placeholder="Add some text&hellip;">
                 <input name="Submit"  type="submit" value="Submit">
-                <input name="Finish"  type="button" value="Finish" onclick ="interactionBegins()">
+                <next-button class="button" id="finish-button" onclick ="linkingBegins()"></next-button> 
+             <next-button class="button" id="analysis-button" onclick ="linkingBegins()"></next-button>
             </form>
-            <p id="nodeCounter"> </p>
-            </baseline> 
-<!--
-            <flow id = page9>
-                <p>Imagine your thinking is the river that flows in one direction... Choose one thought to start with, connect it to the next, to which it naturally <i>flows</i> or relates. Repeat this to let the river flow to the next thought, and the next thought until the river forms a loop. Then, we will start a <i>new river</i> and do this again.  </p>
-                <p><i> Be careful you cannot change or delete (for now)...</i> :) </p>
-            </flow>
--->
-<!--
-            <analysis id = page10>
-                The graph analysis is as follows
-            </analysis>
--->
-        </demo>       
+            
+        </demo> 
+        <playground>
+        </playground>
+        <questionaire id = "questionaire">
+                <form name='questionaire' method='POST'><input type='hidden' name='form-name' value='questionaire' />
+                  <p>
+                    <label>Send Charlotte Your Data <textarea id="graph-analysis" name="data"></textarea></label>
+                  </p>
+                <button type="submit">Send</button>
+            </form>
+         </questionaire>   
+        
     </central-content>    
-</instruction> 
-  
+</holder>
     
 </body>
     
-<script src="main.js"></script> 
-   
-
+<script src="demo.js"></script> 
     
 </html>

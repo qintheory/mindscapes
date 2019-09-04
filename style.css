@@ -27,7 +27,11 @@
 }
 
 body {
+<<<<<<< HEAD
+    font-family: "Montserrat";
+=======
     font-family: "Myriad Pro";
+>>>>>>> 82183c62247023303f3714e2ac6f0b9c09dd2a10
     line-height: 160%; 
     font-size: 18px; 
     align-items: center;
@@ -44,6 +48,9 @@ svg {
 /*    position: fixed;*/
 }
 
+<<<<<<< HEAD
+
+=======
 h2{
     position: center; 
 }
@@ -75,33 +82,53 @@ p {
 #myInput {
     font-family: roboto;
 }
+>>>>>>> 82183c62247023303f3714e2ac6f0b9c09dd2a10
 header{
-    position: fixed;
+position: fixed;
     width: 100%;
+<<<<<<< HEAD
+    z-index: 10;
+    
+=======
     z-index: 8;
 
+>>>>>>> 82183c62247023303f3714e2ac6f0b9c09dd2a10
     top: 0;
     left: 0;
     right: 0;
-    height: 200px;
+    height: 80px;
     
+<<<<<<< HEAD
+    background-color: transparent;
+=======
 /*    background-color: #FDEDEC;*/
+>>>>>>> 82183c62247023303f3714e2ac6f0b9c09dd2a10
     
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
-/*    box-shadow: 0 0 15px 0 grey;*/
-    font-family: moon;
+
 }
 
+header li{
+/*    display: inline-block;*/
 
-
+    font-family: "Moon Bold"; 
+    margin: 20px;
+}
 header img{
+<<<<<<< HEAD
+    height: 80px;
+/*
+    margin-top: 200px;
+    margin-left: 40px;
+    margin-bottom: 40px;
+*/
+=======
     height: 280px;
     margin-top: 200px;
     margin-left: 40px;
     margin-bottom: 40px;
+>>>>>>> 82183c62247023303f3714e2ac6f0b9c09dd2a10
     justify-content: center;
 }
 
@@ -112,6 +139,15 @@ header * {
 heading {
     padding: 15vw 2vw 0 5vh;
     align-items: center;
+}
+
+#title-image {
+    width: 500px;
+/*    padding-bottom: 50px;*/
+}
+
+#title {
+    padding-bottom: 50px;
 }
 
 #tutorialimg8{
@@ -131,11 +167,10 @@ input {
 /*    border: 1px dotted #ccc; */
     border: none;
     background: transparent; 
-    font-family: Moon; 
     padding: 5px 5px; 
     font-size: 14px; 
     margin: 0 10px 0 0; 
-    color: aliceblue;
+/*    color: coral;*/
 /*    box-shadow: 5px 5px 10px rgba(0,0,0,0.1);*/
 }
 
@@ -145,10 +180,26 @@ input:toggle {
     outline: none;
 }
 
+<<<<<<< HEAD
+
+h1 {
+    font-weight: 200;
+    line-height: 100%;
+}
+h2 {
+    font-weight: 200;
+    line-height: 180%;
+}
+
+h3 {
+    font-weight: 300;
+    line-height: 180%;
+=======
 nav *{
     flex-direction: column;
 	flex-wrap: nowrap;
     font-family: "Text Me One;
+>>>>>>> 82183c62247023303f3714e2ac6f0b9c09dd2a10
 }
 
 holder{
@@ -163,14 +214,19 @@ holder{
     align-content: stretch;
 }
 
-#quote {
-    width:70vw;
+quote {
+    width:50vw;
+    font-style: italic;
+    font-family: "Century";
+    font-size: 29px;
+    line-height: 120%;
+    padding: 200px 10px; 
 }
 
 central-content {
     position: relative;
     z-index: 5;
-    width:100vw;
+    width:90vw;
     background: transparent;
     padding: 15vw 2vw 0 5vh;
     margin-bottom: 2vh;
@@ -178,7 +234,7 @@ central-content {
 
     display: flex;
     flex-flow: row nowrap;
-	justify-content: flex-end;
+	justify-content: center;
 	align-items: center;
     align-content: stretch;
 }
@@ -186,22 +242,38 @@ central-content {
 
 .content {
     position: absolute;
+<<<<<<< HEAD
+    top: 1vh;
+=======
     top: 38vh;
+>>>>>>> 82183c62247023303f3714e2ac6f0b9c09dd2a10
     width: 80%;
     background: #FDEDEC; 
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
 	justify-content: center;
     justify-items: stretch;
-	align-items: baseline;
+	align-items: center;
 	align-content: center;
     z-index: 8;
 }
 
+
+
+
+/*media contents*/
+
+video {
+    padding: 200px, 100px;
+}
 .hiding {
     display: none;
 }
 
+.box {
+    display: flex;
+    padding: 20px 10px; 
+}
 #demo-content{
     display: flex;
     align-items: baseline;
@@ -209,7 +281,7 @@ central-content {
 
 .container {
     background-color: transparent;
-    font-weight: 500;
+    font-weight: 300;
     font-size: 22px;
     width: 100%;
     margin-bottom: 2vh;
@@ -220,8 +292,10 @@ central-content {
 	flex-direction: column;
 	flex-wrap: nowrap;
 	justify-content: flex-start;
-	align-items: flex-start;
+	align-items: center;
 }
+
+
 
 playground {
     display: flex;
@@ -231,9 +305,6 @@ playground {
 	align-items: flex-start;
 }
 
-#project-intro{
-    width: 50vw;
-}
 
 guide {
     position: absolute;
@@ -280,9 +351,13 @@ analysis {
     width: 120px;
 }
 
-.button {
+button {
 /*    min-height: 12vh;*/
+<<<<<<< HEAD
+    font-family: "moon bold";
+=======
     font-family: "moon";
+>>>>>>> 82183c62247023303f3714e2ac6f0b9c09dd2a10
     font-size: 16px;
     font-weight: 500;
     background-color: transparent;
@@ -298,7 +373,7 @@ analysis {
 
 }
 
-.button:hover {
+button:hover {
     opacity: 1;
 }
 
@@ -378,15 +453,23 @@ circle {
 text {
       font: 11px "helvetica";
       pointer-events: none;
+<<<<<<< HEAD
+      color: #333300;
+      opacity: 0.5;
+/*      text-shadow: 0 1px 0 aliceblue, 1px 0 0 aliceblue, 0 -1px 0 aliceblue, -1px 0 0 aliceblue;*/
+=======
       color: #5F6A6A;
       text-shadow: 0 1px 0 aliceblue, 1px 0 0 aliceblue, 0 -1px 0 aliceblue, -1px 0 0 aliceblue;
+>>>>>>> 82183c62247023303f3714e2ac6f0b9c09dd2a10
       width: 5px;
 }
 
 .link {
       fill: none;
-      stroke: steelblue;
-      stroke-width: 1.5px;
+      fill: #669999;
+      stroke-width: 2px;
+    
+     opacity: .6;
 }
 
 line {

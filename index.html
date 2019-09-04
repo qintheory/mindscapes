@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>MINDSCAPER: Mental Models Visualized</title> 
+    <title>Mindscapes: Landscapes of the Mind</title> 
     <script src="d3/d3.min.js"></script>
     <script type="text/javascript" src="jquery-3.4.1.min.js"></script> 
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -10,19 +10,42 @@
     
 <body>
 <header>
+<<<<<<< HEAD
+        <img src = "data/logo1.png">
+       
+        <nav id = navbar>
+            <li><a href="tutorial.html">Tutorial</a></li>
+            <li ><a href="demo.html">Check In</a></li>
+            <li ><a href="mindscapes.html">Mindscapes</a></li>
+            <li><a  href = "#our-story">About</a></li>
+=======
         <img src = "data/logo2.png">
        
         <nav id = navbar>
                 <button-tutorial class ="button" id = "button-tutorial">First Time?</button-tutorial>
                 <button-demo  class ="button" id = "button-demo">Old Friends</button-demo>
+>>>>>>> 82183c62247023303f3714e2ac6f0b9c09dd2a10
         </nav>
-</header>    
+    </header>       
    
-
-<page-counter id="pagecounter">
-    <p id="pageNumber"> </p>
-</page-counter>     
 <holder>
+<<<<<<< HEAD
+    <central-content class = "content"> 
+    
+        <div class = "container" id = "title">   
+                
+                <img src = "data/logo2.png" id = "title-image">
+               
+        </div> 
+             
+        <h1> Start exploring and understanding the patterns of your emotions and thoughts with a <b>cartographic journal</b>: Mindscapes </h1>
+        
+        <quote> Mindscaping is a journey up to the summit of the mountain
+        <br> Looking at the valley of fear, <br> lake of desires, <br> and village of values under your eyes, 
+        <br>Say to yourself,
+        <br>'Glad I’ve been there'</quote>
+              
+=======
     <central-content> 
      <openning class = "content"> 
         <quote class = "container" id = "quote">
@@ -60,21 +83,40 @@
                 <p>Perceptions are stabilized patterns merged in our thoughts. Often times they are formed in the subconscious mind, which means we are unaware of their existence until they intervene in our consciousness or even actions. Our mental models are constructed this way.
 
                 At the end of your mindscaping exercise, you will receive an analysis of your graph based on your performance. This generally consists of the identification your perceptions, values, and where to intervene in your mental models.</p>
+>>>>>>> 82183c62247023303f3714e2ac6f0b9c09dd2a10
 
-                <img id=tutorialimg9 src = "data/tutorial3.png">
-                </tutorial-content4>
-                <tutorial-content5 id = tut5>
-                    <h3>The End</h3>
-                    <p>If you feel ready to start doing some mindscaping on your own, click the button below:</p>
-                     <button-start-demo  class ="button" id = "button-start-demo">Start Demo</button-start-demo>
-                </tutorial-content5>
-             </tutorial-content>  
-        <button-next id="next" class="button"> next </button-next>       
-        </tutorial>
-     
-     <demo class = "content" id = "demo-content"> 
-        <baseline class = "container" id = "baseline">      
+        <div class = "container" >
+            
+            <h1>How it works </h1>
+            <box class = "box">
+                <div>
+                    <h2><b>Adding meaningful moments.</b></h2>
+                    <h3> Mindscapes offers journaling within three categories: Highlights, Lowlights, and Free Writes (Rides). These entries will be added to a collective map which guides you in your personal growth and emotional journey.   </h3>
+                </div>
                 
+<<<<<<< HEAD
+                <video autoplay="autoplay">
+                      <source src="../data/tutorial1.mp4" type="video/mp4">
+                </video>
+            </box> 
+            
+            <box class = "box">
+                <video autoplay="autoplay">
+                      <source src="../data/tutorial1.mp4" type="video/mp4">
+                </video>
+                <div>
+                    <h2><b>Explore your emotions and learn about yourself.</b></h2>
+                    <h3> Mindscapes is an application of Water Logic (de Bono, 1994), a procedure which translates the momentary consciousness to schematics of perceptions, which shows which thoughts are dominant, which thoughts lead to cyclical patterns. </h3>
+                    <button class = "button"> Start Tutorial </button>
+                </div>
+            </box>
+            
+            <box class = "box">
+                <div>
+                    <h2><b>Find deeper meanings through long-term reflection about your thoughts.</b></h2>
+                    <h3> Mindscapes offers a cartographic view of the thoughts and expressions appreciate, learn from, and find peace with our past as we take steps toward the future ahead.</h3>
+                </div>
+=======
              <h2> What is this old memory that has sticked to your mind for so long that you revisit your emotions through it every other day...? </h2> 
         
             <form name="Baseline Generation" autocomplete="off" onSubmit="return enter()">
@@ -105,29 +147,63 @@
                     </feature>    
                  </analysis> 
                 <form>
+>>>>>>> 82183c62247023303f3714e2ac6f0b9c09dd2a10
                 
-                </form>
-            </playground> 
-            <questionaire id = "questionaire">
-                <form name = "questionaire" method="POST" data-netlify="true" >
-                  <p>
-                    <label>Send Charlotte Your Data <textarea id="graph-analysis" name="data"></textarea></label>
-                  </p>
-                <button type="submit">Send</button>
-            </form>
-            </questionaire>    
-        </baseline>     
+                <video autoplay="autoplay">
+                      <source src="../data/tutorial1.mp4" type="video/mp4">
+                </video>
+            </box> 
             
+            <box class = "box">
+                <video autoplay="autoplay">
+                      <source src="../data/tutorial1.mp4" type="video/mp4">
+                </video>
+                <div>
+                    <h2><b>Express yourself knowing your privacy is taken care of.</b></h2>
+                    <h3> Your account is only accessible by you and your data is protected by SSL in transit and your entries are encrypted at storage in our data base.</h3>
+                    <button class = "button"> See Examples</button>
+                </div>
+            </box>
             
-             <next-button class="button" id="finish-button" onclick ="linkingBegins()"></next-button> 
-             <next-button class="button" id="analysis-button" onclick ="linkingBegins()"></next-button> 
-
-            <!--    <p id='actionGuide'>click the next circle</p>-->
-
+           <box class = "box">
+                <div>
+                    <h2><b>Experience a holistic approach to your psycho-emotional wellbeing.</b></h2>
+                    <h3>During your end-of-month review, we encourage you to share where you stand on our six dimensions of wellness: Mind, Body, Soul, Work, Play, and Love.
+                     
+                    Over time, you can start to see which areas of your life are getting the most attention and which areas might need a little more love.</h3>
+                </div>
+                
+                <video autoplay="autoplay">
+                      <source src="../data/tutorial1.mp4" type="video/mp4">
+                </video>
+            </box> 
+            
+            <box class = "box">
+                <video autoplay="autoplay">
+                      <source src="../data/tutorial1.mp4" type="video/mp4">
+                </video>
+                <div>
+                    <h2><b>Be part of the collective mental models through the forum.</b></h2>
+                    <h3> Mindscape forum is a space for sharing collective mental maps across users of the platforms. It gives the opportunity to see interconnectivity and interdependence of the world. </h3>
+                    <button class = "button"> See Examples</button>
+                </div>
+            </box>   
+              
+        </div>
         
-        </demo>
-        
-     <about class = "content">
+        <div class = "container" id = "our-story">
+            <h1>Our Story </h1>
+<!--            <img src = "data/logo2.png">-->
+            <div>
+            <p2>Mindscapes is developed by Charlotte Qin, a mixed background designer who had worked through her own mental barriers and resistence to bring the project to light. <br> <br> 
+            During the early development of the project, she had received tremendeous encouragement from Jerome Michtell who was then a MA Painting student at the Royal College of Art. Jerome has taken the technique of Mindscapes to develop a workshop to a community of youth who were considered to be at rist, i.e. ready to join a gang, or have living in hostels or other forms of care. Through two sessions of workshop, it was clearly demonstrated that the process had helped the participants to see their goals in life and makes them believe in their abilities of creating a business that positively impcts the community. <br> <br>
+            Charlotte had also received tremendeous help from her friends who are software engineers, data visualization, and interaction designers. 
+            </p2>    
+            </div>
+        </div>
+
+<!--
+        <about class = "content">
             <project-intro class = "container" id = "project-intro">
                 <p> 
                 Humans, being part of the universe, are limited by time and space, and the experience of self: our internal thoughts and emotions. This kind of delusion of consciousness is called mental models, our internal representations of the external reality. <br/> <br/>
@@ -139,10 +215,14 @@
             
 
             </project-intro>    
-        </about>
+        </about>    
+
+-->
     </central-content>    
 </holder>
     
+<<<<<<< HEAD
+=======
 <question-holder id="questionholder">
     <p id="question-icon">i</p>
     <p id="question-answer" style="display: none"> make sure to click the claim, not the link
@@ -150,10 +230,9 @@
     </p>
 </question-holder> 
     
+>>>>>>> 82183c62247023303f3714e2ac6f0b9c09dd2a10
 </body>
     
-<script src="demo.js"></script> 
-   
+<script src="about.js"></script> 
 
-    
 </html>

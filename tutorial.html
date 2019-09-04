@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MINDSCAPER: Landscape of the Mind</title> 
+    <script src="d3/d3.min.js"></script>
+    <script type="text/javascript" src="jquery-3.4.1.min.js"></script> 
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+    
+<body>
+<header>
+        <img src = "data/logo1.png">
+       
+        <nav id = navbar>
+                <button-home class ="button" id = "button-tutorial"><a href="index.html">Home</a></button-home>
+        </nav>
+</header>    
+   
+
+<page-counter id="pagecounter">
+    <p id="pageNumber"> </p>
+</page-counter>     
+<holder>
+    <central-content>      
+     <tutorial class = "content">
+            <button-back id="goback" class="button"> go back </button-back> 
+            <button-back0 id="end-beginning" class="button">   </button-back0> 
+            <tutorial-content class = container>
+                <tutorial-content1 id = tut1> 
+                    <p>
+                        Welcome to Mindscapes. You are about to start your first mindscaping journey. In the following short tutorial, we will guide you through the steps to create your own “mindscape”. The minscaping process might be a new experience for you and we would like to ask you get into your attention for the next 10 - 20 minutes while completing the exercise. When you are ready, click the “next” button.</p>
+                </tutorial-content1>   
+                <tutorial-content2 id = tut2> 
+                    <h3>1. Stream of Consciousness</h3>
+                    <p>If we think about how we think… our brain rarely seems to stop generating thoughts or processing information. When you think about some aspect of an issue, naturally your thinking flows from one thought to another. As an example, when I think about happiness, I think about love. Naturally, love reminds me of my family, and then I think about home and the favourite dish my mom made… this continuous, uninterrupted flow of thoughts is called the “stream of consciousness”.  <br/> <br/> As the first step of Mindscaping, you will be asked to generate the “stream of consciousness” around a question.</p>
+                    <video id="vid1" autoplay="autoplay">
+                      <source src="../data/tutorial1.mp4" type="video/mp4">
+                    </video>
+                </tutorial-content2> 
+                <tutorial-content3 id = tut3> 
+                    <h3>2. Flow of Attention</h3>
+                    <p>Flow is the motion of thinking. Like water flows continuously downhill due to gravity, our thinking is driven by the focus of attention. <br/> <br/> 
+                    The second step of Mindscaping is to revisit where your attention has been and map out the trajectory of the flow. Starting from any thought on your screen, connect it with what it naturally relates or flows to. Continue doing so until you are informed “a loop has formed”, and then you will be asked to start again on a new thought you haven’t visited. You might find some of the thoughts stand out and get stuck on where to go next – try to focus on the individual thought in this case. Repeat the process until there is no unvisited thoughts left behind, or every circle has one (and only one) outgoing connection.</p>
+
+                     <video id="vid2" autoplay="autoplay">
+                      <source src="../data/tutorial2.mp4" type="video/mp4">
+                    </video>
+
+                </tutorial-content3>  
+                <tutorial-content4 id = tut4> 
+                <h3>3. Analysis</h3>
+                <p>Perceptions are stabilized patterns merged in our thoughts. Often times they are formed in the subconscious mind, which means we are unaware of their existence until they intervene in our consciousness or even actions. Our mental models are constructed this way.
+
+                At the end of your mindscaping exercise, you will receive an analysis of your graph based on your performance. This generally consists of the identification your perceptions, values, and where to intervene in your mental models.</p>
+
+                <img id=tutorialimg9 src = "../data/tutorial3.png">
+                </tutorial-content4>
+                <tutorial-content5 id = tut5>
+                    <h3>The End</h3>
+                    <p>If you feel ready to start doing some mindscaping on your own, click the button below:</p>
+                     <button-start-demo  class ="button" id = "button-start-demo">Start Demo</button-start-demo>
+                </tutorial-content5>
+             </tutorial-content>  
+        <button-next id="next" class="button"> next </button-next>       
+        </tutorial>
+    </central-content>    
+</holder>
+    
+<question-holder id="questionholder">
+<!--    write to me-->
+<!--
+    <p id="question-icon">i</p>
+    <p id="question-answer" style="display: none"> make sure to click the claim, not the link
+        <span id="tt-tip" style="display: none">I have no ideas</span>
+    </p>
+-->
+</question-holder> 
+    
+</body>
+    
+<script src="tutorial.js"></script>    
+    
+</html>

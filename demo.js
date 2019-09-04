@@ -1,3 +1,29 @@
+$(document).ready(function(){
+    console.log("document ready");
+    $("emotions").hide();
+    $("demo").hide();
+    $("#questionaire").hide();
+//    switchCentralContent();  
+});
+
+$(".button-mood").click(function(){
+    $("check-in").hide();
+    $("emotions").show();
+    $("demo").hide();
+});
+
+$("#launch-demo").click(function(){
+    $("check-in").hide();
+    $("emotions").hide();
+    $("demo").show();
+});
+
+$("#finish-button").click(function(){
+    $("check-in").hide();
+    $("emotions").hide();
+    $("demo").show();
+});
+
 var input;    
 var time, date1, date2;
 
@@ -28,7 +54,6 @@ var nodes = [ ],
     node = svg.append("g").attr("class", "nodes")
         .selectAll(".node");  
 
-var practice = [{name: 1}, {name: 2}, {name: 3}, {name: 4}];
     
 var text = svg.append("g").attr("class", "texts")
         .selectAll("text");
@@ -37,23 +62,6 @@ var text = svg.append("g").attr("class", "texts")
 var link = svg.append("g").attr("stroke", "#000").attr("stroke-width", 1.5).selectAll("path");
     
 var links = [];
-
-
-//TUTORIAL SECTION jQuery
-var nextButton = $("#next"),
-    backButton = $("#goback");
-
-var endBeginning = $("#end-beginning");
-
-var pageNumber = 0;
-
-var helpAnswers = [
-    "I am here to answer some potential questions.",
-    "",
-    "(our thought processes about how the world works"
-]
-
-//var line;
     
 // DEFINING Arrows on the links/arcs    
 svg.append("defs").selectAll("marker")
@@ -66,7 +74,7 @@ svg.append("defs").selectAll("marker")
     .attr("markerWidth", 6)
     .attr("markerHeight", 6)
     .attr("orient", "auto")
-    .style("fill", "steelblue")
+    .style("fill", "#669999")
   .append("path")
     .attr("d", "M0,-5L10,0L0,5");    
         
@@ -81,6 +89,8 @@ var simulation = d3.forceSimulation(nodes)
     .force("center", d3.forceCenter(width / 2, height / 2))
     .on("tick", tick);   
 
+<<<<<<< HEAD
+=======
 var page1 = $("#tut1"),
     page2 = $("#tut2"),
     page3 = $("#tut3"),
@@ -232,15 +242,10 @@ function switchCentralContent(){
 
 
 
+>>>>>>> 82183c62247023303f3714e2ac6f0b9c09dd2a10
 // enabling mouse up at all times   
 svg.on("mouseup", mouseUp);
 //restart();
-
-
-
-
-
-
 
 
 // MAKE NODES FROM USER INPUT    
@@ -262,6 +267,7 @@ function drawNode(name){
     
     $("#finish-button").text("finish"); 
 }
+
 
 function deleteNode(d, i) {
     nodes.splice(i, 1);
@@ -470,25 +476,6 @@ function mouseUp() {
   
 } 
 
-//function deleteLink() {
-//    console.log("doubleclicked")
-//    links.pop();
-////    var lastCLickedid = links[links.length -1].target.id;
-////    d3.select(".node: #lastCLickedid").style("fill", "coral");
-////        return l.source.id != d.id && l.target.id != d.id; 
-////    var lastId = links[links.length-1].target.id;
-//    d = this;
-//    d3.select(d)
-//        .style("fill", "aliceblue")
-//        .merge(node)
-//        ; 
-//    
-//    d3.event.stopPropagation();
-//    updateLink();
-////    nodeClicked = false;
-////    previousClick = null; 
-//    
-//}
 
 function updateLink() {
     link = link.data(links, function(d) { return d.source.id + "-" + d.target.id; });
