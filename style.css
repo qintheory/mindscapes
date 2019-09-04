@@ -27,11 +27,8 @@
 }
 
 body {
-<<<<<<< HEAD
     font-family: "Montserrat";
-=======
     font-family: "Myriad Pro";
->>>>>>> 82183c62247023303f3714e2ac6f0b9c09dd2a10
     line-height: 160%; 
     font-size: 18px; 
     align-items: center;
@@ -48,9 +45,6 @@ svg {
 /*    position: fixed;*/
 }
 
-<<<<<<< HEAD
-
-=======
 h2{
     position: center; 
 }
@@ -82,27 +76,18 @@ p {
 #myInput {
     font-family: roboto;
 }
->>>>>>> 82183c62247023303f3714e2ac6f0b9c09dd2a10
+
 header{
 position: fixed;
     width: 100%;
-<<<<<<< HEAD
     z-index: 10;
-    
-=======
     z-index: 8;
-
->>>>>>> 82183c62247023303f3714e2ac6f0b9c09dd2a10
     top: 0;
     left: 0;
     right: 0;
     height: 80px;
-    
-<<<<<<< HEAD
     background-color: transparent;
-=======
 /*    background-color: #FDEDEC;*/
->>>>>>> 82183c62247023303f3714e2ac6f0b9c09dd2a10
     
     display: flex;
     align-items: center;
@@ -116,19 +101,10 @@ header li{
     margin: 20px;
 }
 header img{
-<<<<<<< HEAD
     height: 80px;
-/*
-    margin-top: 200px;
+
     margin-left: 40px;
     margin-bottom: 40px;
-*/
-=======
-    height: 280px;
-    margin-top: 200px;
-    margin-left: 40px;
-    margin-bottom: 40px;
->>>>>>> 82183c62247023303f3714e2ac6f0b9c09dd2a10
     justify-content: center;
 }
 
@@ -180,7 +156,6 @@ input:toggle {
     outline: none;
 }
 
-<<<<<<< HEAD
 
 h1 {
     font-weight: 200;
@@ -194,12 +169,11 @@ h2 {
 h3 {
     font-weight: 300;
     line-height: 180%;
-=======
+}
 nav *{
     flex-direction: column;
 	flex-wrap: nowrap;
     font-family: "Text Me One;
->>>>>>> 82183c62247023303f3714e2ac6f0b9c09dd2a10
 }
 
 holder{
@@ -242,11 +216,8 @@ central-content {
 
 .content {
     position: absolute;
-<<<<<<< HEAD
     top: 1vh;
-=======
     top: 38vh;
->>>>>>> 82183c62247023303f3714e2ac6f0b9c09dd2a10
     width: 80%;
     background: #FDEDEC; 
     display: flex;
@@ -353,11 +324,8 @@ analysis {
 
 button {
 /*    min-height: 12vh;*/
-<<<<<<< HEAD
     font-family: "moon bold";
-=======
     font-family: "moon";
->>>>>>> 82183c62247023303f3714e2ac6f0b9c09dd2a10
     font-size: 16px;
     font-weight: 500;
     background-color: transparent;
@@ -453,14 +421,11 @@ circle {
 text {
       font: 11px "helvetica";
       pointer-events: none;
-<<<<<<< HEAD
       color: #333300;
       opacity: 0.5;
 /*      text-shadow: 0 1px 0 aliceblue, 1px 0 0 aliceblue, 0 -1px 0 aliceblue, -1px 0 0 aliceblue;*/
-=======
       color: #5F6A6A;
       text-shadow: 0 1px 0 aliceblue, 1px 0 0 aliceblue, 0 -1px 0 aliceblue, -1px 0 0 aliceblue;
->>>>>>> 82183c62247023303f3714e2ac6f0b9c09dd2a10
       width: 5px;
 }
 

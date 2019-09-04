@@ -89,8 +89,6 @@ var simulation = d3.forceSimulation(nodes)
     .force("center", d3.forceCenter(width / 2, height / 2))
     .on("tick", tick);   
 
-<<<<<<< HEAD
-=======
 var page1 = $("#tut1"),
     page2 = $("#tut2"),
     page3 = $("#tut3"),
@@ -241,8 +239,6 @@ function switchCentralContent(){
 }
 
 
-
->>>>>>> 82183c62247023303f3714e2ac6f0b9c09dd2a10
 // enabling mouse up at all times   
 svg.on("mouseup", mouseUp);
 //restart();
