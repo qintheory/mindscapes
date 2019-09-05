@@ -430,6 +430,7 @@ analysis {
 }
 
 circle {
+    z-index: 9;
     fill: coral;
     opacity: 0.7;
 /*    stroke: aliceblue;*/
@@ -452,15 +453,20 @@ text {
 }
 
 .link {
+/*
       fill: none;
       fill: #669999;
-      stroke-width: 2px;
+*/
+    fill: none;
+     stroke-width: 2px;
+    stroke: #669999;
     
-     opacity: .6;
+     opacity: 0.9;
 }
 
 line {
-     stroke: steelblue;
+    
+     stroke: #669999;
      stroke-width: 2px;
      stroke-linecap: round;
 }

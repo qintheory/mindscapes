@@ -79,12 +79,12 @@ svg.append("defs").selectAll("marker")
         
 // DEFINE FORCES    
 var simulation = d3.forceSimulation(nodes)
-    .force("charge", d3.forceManyBody().strength(-400))
+    .force("charge", d3.forceManyBody().strength(-800))
 //    .force("link", d3.forceLink(links).distance(50))
     .force("x", d3.forceX())
     .force("y", d3.forceY())
     .alphaTarget(0.5)
-    .force("r", d3.forceRadial(300))
+    .force("r", d3.forceRadial(400))
     .force("center", d3.forceCenter(width / 2, height / 2))
     .on("tick", tick);   
 
@@ -175,7 +175,9 @@ function updateNodes(d, i) {
 
 // ENABLING LINK MAKING FROM NODES     
 function linkingBegins() {
-    simulation.force("charge", d3.forceManyBody().strength(-1200));
+    simulation
+        .force("charge", d3.forceManyBody().strength(-1200))
+        .force("collide", d3.forceCollide().radius(150));
     
     
     node = node
@@ -351,7 +353,9 @@ $("#analysis-button").click(function(){
 });
 
 function untangle(){
-    simulation.force("link", d3.forceLink(links).distance(50));
+    simulation.force("link", d3.forceLink(links).distance(100))
+        .force("charge", d3.forceManyBody().strength(-300))
+        .force("collide", d3.forceCollide().radius(20));
     console.log("untangled!")
     //innitiate dragging
     node.call(d3.drag()
@@ -389,6 +393,10 @@ function analysis(links){
     var counts = [];
     var n = 1
     
+    simulation.force("link", d3.forceLink(links).distance(250))
+        .force("charge", d3.forceManyBody().strength(-300))
+        .force("collide", d3.forceCollide().radius(20));
+    
     links.forEach(function(d, i){
         var item = d.target.id;
         //if it's repeated
@@ -422,6 +430,7 @@ function tick() {
   link.attr("d", linkArc);    
   text.attr("transform", transform);    
 }
+
 
 function transform(d) {
   return "translate(" + d.x + "," + d.y + ")";
