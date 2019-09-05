@@ -29,8 +29,9 @@ var train = [];
 var streams = [];
 var nowClick;
 
-var width = 800;
-var height = 500;
+var width = window.innerWidth || document.body.clientWidth,
+    height = window.innerHeight || document.body.clientHeight;
+
 var svg = d3.select("playground").insert("svg")
             .attr("width", width)
             .attr("height", height)
