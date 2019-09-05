@@ -133,8 +133,7 @@ quote {
 
 button {
     min-height: 3vh;
-    width: auto;
-    font-family: "moon bold";
+    font-family: "moon";
     font-size: 26px;
     font-weight: 500;
 /*    color: #669999;*/
@@ -147,7 +146,7 @@ button {
     cursor: pointer;
     margin: 2vh 2vw;
 /*    border: 2px solid #669999;*/
-    border-radius: 20px;
+    border-radius: 50px;
 /*    display: flex;*/
 /*	justify-content: center;*/
 /*	align-items: center;*/
@@ -158,7 +157,7 @@ button:hover {
     opacity: .9;
 
     border-radius: 50px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 
 }
 
@@ -166,64 +165,8 @@ button a {
   color: aliceblue;
 }
 
-/*----------------------------------------------------*/
 
-.function {
-    font-weight: 600;
-}
-
-.solution {
-    font-weight: 500;
-}
-
-#security {
-    font-style: italic;
-    color: #669999;
-}
-
-#our-story {
-    width: 80%;
-    padding-top: 70px;
-}
-
-input {
-/*    border: 1px dotted #ccc; */
-    border: none;
-    background: transparent; 
-    padding: 5px 5px; 
-    font-size: 14px; 
-    margin: 0 10px 0 0; 
-/*    color: coral;*/
-/*    box-shadow: 5px 5px 10px rgba(0,0,0,0.1);*/
-}
-
-input:toggle { 
-/*    background-color:yellow; */
-    color: coral;
-    outline: none;
-}
-
-
-h1 {
-    font-weight: 200;
-    line-height: 100%;
-}
-h2 {
-    font-weight: 200;
-    line-height: 180%;
-}
-
-h3 {
-    font-weight: 300;
-    line-height: 180%;
-}
-
-/*text*/
-#myInput {
-    font-family: Montserrat;
-}
-
-
+/*---------------------- intro page -------------------*/
 
 holder{
     position: absolute;
@@ -269,7 +212,121 @@ central-content {
     z-index: 8;
 }
 
+.function {
+    font-weight: 600;
+}
 
+.solution {
+    font-weight: 500;
+}
+
+#security {
+    font-style: italic;
+    color: #669999;
+}
+
+#our-story {
+    width: 80%;
+    padding-top: 70px;
+}
+
+/*----------------------- demo -----------------------*/
+
+
+
+#text-input {
+    position: fixed;
+    bottom: 0;
+    width:100%; 
+}
+
+
+input {
+/*    border: 1px dotted #ccc; */
+    border: none;
+    width: 600px;
+    background: transparent; 
+    padding: 5px 5px; 
+    font-size: 25px; 
+    margin: 10px 10px; 
+    opacity: 0.6;
+/*    color: coral;*/
+/*    box-shadow: 5px 5px 10px rgba(0,0,0,0.1);*/
+}
+
+#submit-button {
+    transition: 0.2s;
+    cursor: pointer;
+    margin: 2vh 2vw;
+    min-height: 3vh;
+    width: 10vw;
+    font-family: "moon";
+    font-size: 26px;
+    
+    background-color:  transparent;
+    color: #669999;
+    border: 2px solid #669999;
+    border-radius: 50px;
+}
+
+#submit-button:hover {
+    font-weight: 600;
+    background-color:  transparent;
+    color: #669999;
+}
+
+input:toggle { 
+/*    background-color:yellow; */
+    color: coral;
+    outline: none;
+}
+
+playground{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+}
+
+.questionaire-input {
+    border: 1px dotted #ccc; 
+    border: none;
+    background: white; 
+    padding: 5px 5px; 
+    font-size: 14px; 
+    margin: 0 10px 0 0; 
+    color: #5F6A6A;
+}
+
+questionaire {
+    position: fixed;
+    bottom: 0%;
+/*    padding-top: 30px;*/
+    width: 100%;
+    line-height: 15px;
+    background-color: transparent;
+}
+
+/*----------------------- text -----------------------*/
+
+h1 {
+    font-weight: 200;
+    line-height: 100%;
+}
+h2 {
+    font-weight: 200;
+    line-height: 180%;
+}
+
+h3 {
+    font-weight: 300;
+    line-height: 180%;
+}
+
+/*text*/
+#myInput {
+    font-family: Montserrat;
+}
 
 
 /*media contents*/
@@ -285,10 +342,7 @@ video {
     display: flex;
     padding: 20px 10px; 
 }
-#demo-content{
-    display: flex;
-    align-items: baseline;
-}
+
 
 .container {
     background-color: transparent;
@@ -304,16 +358,6 @@ video {
 	flex-wrap: nowrap;
 	justify-content: flex-start;
 	align-items: center;
-}
-
-
-
-playground {
-    display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-items: flex-start;
 }
 
 
@@ -369,60 +413,6 @@ analysis {
     outline: none;
 }
 
-#pagecounter {
-    position: absolute;
-    bottom: 5vh;
-    left: 5vh;
-    font-size: 36;
-}
-
-#questionholder {
-    position: absolute;
-    bottom: 5vh;
-    right: 5vh;
-}
-
-#question-icon:hover {
-    border: rgba(255,255,255, 1);
-}
-
-
-#question-icon {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 5vh;
-    width: 5vh;
-    border-radius: 2.5vh;
-    background-color: transparent;
-    border: 2px solid rgba(200,200,200, 0.5);
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
-    background: transparent;
-    padding-bottom:2px;
-    cursor: pointer;
-    transition: 0.2s;
-    font-weight: 800;
-    color: grey;
-    display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
-    align-content: stretch;
-    z-index: 1;
-}
-
-#question-answer {
-    z-index: 100;
-    width: 30vw;
-    height: 20vh;
-    display: block;
-    background: transparent;
-    border-radius: 2.5vh;
-    opacity: 1;
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
-    padding: 2vh;
-}
 
 #nodeCounter {
     font-size: 15px;
@@ -484,21 +474,6 @@ textarea {
     width: auto;
 }
 
-.questionaire-input {
-    border: 1px dotted #ccc; 
-    border: none;
-    background: white; 
-    padding: 5px 5px; 
-    font-size: 14px; 
-    margin: 0 10px 0 0; 
-    color: #5F6A6A;
-}
-questionaire {
-/*    padding-top: 30px;*/
-    width: 100%;
-    line-height: 15px;
-    background-color: #FDEDEC;
-}
 
 label {
     margin-right: 15px;

@@ -228,6 +228,7 @@ function linkingBegins() {
     $("#nodeCounter").html("Start a new stream of consciousness");
     console.log("interaction");
     $("#finish-button").hide();
+//    $("#analysis-button").show();
 }
 
 
@@ -354,7 +355,8 @@ function mouseUp() {
         //disable makeLinks
         node.on("mousedown", null)
 //            .on("dblclick", null);
-        untangle();  
+        untangle();
+        $("#analysis-button").show().text("analysis");   
       } 
   }
   

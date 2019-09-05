@@ -21,9 +21,10 @@
         </nav>
 -->
 </header>
-   
-<holder>
-    <central-content class = "content"> 
+    
+<playground> 
+</playground>     
+
 <!--
         <check-in class = "container">   
             <h1>How are you feeling now? </h1>   
@@ -33,30 +34,27 @@
              <button class = "button-mood">freerides</button>
             </box> 
         </check-in>  
--->
-        <demo class = "container">   
-            <form name="Baseline Generation" autocomplete="off" onSubmit="return enter()">
-                <input type="text" id="myInput" placeholder="Add some text&hellip;">
-                <input name="Submit"  type="submit" value="Submit">
-                <button class="button" id="finish-button" onclick ="linkingBegins()"></button> 
-                <button class="button" id="analysis-button" onclick ="linkingBegins()"></button>
-            </form>
-            
-        </demo> 
-        <playground>
-        </playground>
-        <questionaire id = "questionaire">
-                <form name='questionaire' method='POST'><input type='hidden' name='form-name' value='questionaire' />
-                  <p>
-                    <label>Send Charlotte Your Data <textarea id="graph-analysis" name="data"></textarea></label>
-                  </p>
-                <button type="submit">Send</button>
-            </form>
-         </questionaire>   
-        
-    </central-content>    
-</holder>
-    
+-->     
+    <nav>    
+        <button class="button" id="finish-button" onclick ="linkingBegins()"></button> 
+        <button class="button" id="analysis-button" onclick ="linkingBegins()"></button>
+    </nav> 
+
+    <demo class = "container" id = "text-input">   
+         <form class = "container" name="Baseline Generation" autocomplete="off" onSubmit="return enter()">
+            <input type="text" id="myInput" placeholder="Add what's going through your mind...">
+            <input name="Submit"  type="submit" value="Submit" id = "submit-button"> 
+        </form>
+    </demo>  
+    <questionaire id = "questionaire">
+            <form name='questionaire' method='POST'><input type='hidden' name='form-name' value='questionaire' />
+              <p>
+                <label>Send Charlotte Your Data <textarea id="graph-analysis" name="data"></textarea></label>
+              </p>
+            <button type="submit">Send</button>
+        </form>
+     </questionaire>   
+ 
 </body>
     
 <script src="demo.js"></script> 
