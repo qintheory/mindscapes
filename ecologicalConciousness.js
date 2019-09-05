@@ -29,7 +29,7 @@ d3.json("data/eco.json", function(links) {
     
     
     
-    var svg = d3.select("body").append("svg")
+    var svg = d3.select("forum").append("svg")
         .attr("width", width)
         .attr("height", height);
     

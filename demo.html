@@ -10,18 +10,21 @@
     
 <body>
 <header>
-        <img src = "data/logo1.png">
+    <a href="index.html"><img src = "data/logo1.png" ></a>   
        
+<!--
         <nav id = navbar>
             <li><a href="tutorial.html">Tutorial</a></li>
             <li ><a href="demo.html">Check In</a></li>
             <li ><a href="mindscapes.html">Mindscapes</a></li>
             <li><a  href = "#our-story">About</a></li>
         </nav>
+-->
 </header>
    
 <holder>
     <central-content class = "content"> 
+<!--
         <check-in class = "container">   
             <h1>How are you feeling now? </h1>   
             <box class = "box">
@@ -29,26 +32,14 @@
              <button class = "button-mood">lowlights</button>
              <button class = "button-mood">freerides</button>
             </box> 
-        </check-in> 
-        <emotions class = "container">   
-            <h1>How would you describe your emotions?</h1>   
-            <box class = "box">
-<!--
-                <input type="text" id="myInput" placeholder="Title">
-                
-                <input type="text" id="myInput" placeholder="Add some description">
-                <input name="Submit"  type="submit" value="Submit">
+        </check-in>  
 -->
-                
-            </box> 
-            <button id = "launch-demo">Start mindscaping</button>
-        </emotions> 
         <demo class = "container">   
             <form name="Baseline Generation" autocomplete="off" onSubmit="return enter()">
                 <input type="text" id="myInput" placeholder="Add some text&hellip;">
                 <input name="Submit"  type="submit" value="Submit">
-                <next-button class="button" id="finish-button" onclick ="linkingBegins()"></next-button> 
-             <next-button class="button" id="analysis-button" onclick ="linkingBegins()"></next-button>
+                <button class="button" id="finish-button" onclick ="linkingBegins()"></button> 
+                <button class="button" id="analysis-button" onclick ="linkingBegins()"></button>
             </form>
             
         </demo> 

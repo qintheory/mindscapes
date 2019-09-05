@@ -1,0 +1,109 @@
+{
+ "name": "emotions",
+ "size": 18000,    
+ "children": [
+  {
+   "name": "anger",
+   "children": [
+    {
+     "name": "boyfriend",
+     "children": [
+      {"name": "fight", "size": 3938},
+      {"name": "going to his parents", "size": 3812}
+     ]
+    },
+    {
+     "name": "work",
+     "children": [
+      {"name": "meeting", "size": 3534}
+     ]
+    }
+   ]
+  },
+  {     
+    "name": "fear",
+    "size": 2000,  
+    "children": [
+    {
+        "name": "art", 
+        "size": 7000,
+        "children": [
+            {
+                "name": "start", 
+                "size": 6000
+            }, 
+            {
+                "name": "finishing", 
+                "size": 6000
+            }
+        ]   
+    },
+    {
+        "name": "making things happen", 
+        "size": 5000, 
+        "children": [
+            {
+                "name": "opportunity", 
+                "size": 3000
+            }
+        ]
+    }   
+    ]  
+  },
+  {     
+    "name": "peace",
+    "children": [
+    {
+    "name": "hope"
+    },
+    {
+    "name": "nature"
+    }
+    ]  
+  },
+  {     
+    "name": "sadness",
+    "children": [
+    {
+    "name": "the bird"
+    },
+    {
+    "name": "boyfriend"
+    },
+    {
+    "name": "London"
+    }    
+    ]  
+  }, 
+  {     
+    "name": "excitement",
+    "children": [
+    {
+    "name": "trip to france"
+    },
+    {
+    "name": "the film",
+    "children": [
+        {
+            "name": "JINST"
+        }
+    ]    
+    },
+    {
+    "name": "turst",
+    "children": [
+        {
+            "name": "my mother"
+        },
+        {
+            "name": "boyfriend"
+        },
+        {
+            "name": "manager"
+        }
+    ]
+    }
+    ]  
+  }     
+ ]
+}

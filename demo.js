@@ -1,28 +1,15 @@
 $(document).ready(function(){
     console.log("document ready");
-    $("emotions").hide();
-    $("demo").hide();
     $("#questionaire").hide();
+    $("demo").show();
+    $("#finish-button").hide();
+    $("#analysis-button").hide();
 //    switchCentralContent();  
 });
 
-$(".button-mood").click(function(){
-    $("check-in").hide();
-    $("emotions").show();
-    $("demo").hide();
-});
-
-$("#launch-demo").click(function(){
-    $("check-in").hide();
-    $("emotions").hide();
-    $("demo").show();
-});
-
 $("#finish-button").click(function(){
-    $("check-in").hide();
-    $("emotions").hide();
-    $("demo").show();
-});
+    linkingBegins();
+})
 
 var input;    
 var time, date1, date2;
@@ -103,102 +90,7 @@ var centralContents = [
     page5
     ]
 
-$(document).ready(function(){
-    console.log("document ready");
-    $("about").hide();
-    $("tutorial").hide();
-    $("demo").hide();
-    $("#questionaire").hide();
-//    switchCentralContent();  
-});
 
-$("demo").ready(function(){
-    $("#analysis-button").hide();
-    $("analysis").hide();
-//    switchCentralContent();  
-});
-
-
-$("#button-about").click(function(){
-    $("about").toggle(function(){
-        $("#button-about").toggleClass("active");
-    });
-    $("#button-tutorial").removeClass("active");
-    $("#button-demo").removeClass("active");
-    $("tutorial").hide();
-    $("demo").hide();
-})
-
-$("#button-tutorial").click(function(){
-    $("tutorial").toggle(function(){
-    document.getElementById('vid1').play();    
-    $("#button-tutorial").toggleClass("active");
-    $("#button-tutorial").text("Tutorial");
-    });
-    $("#button-about").removeClass("active");
-    $("#button-demo").removeClass("active");
-    $("about").hide();
-    $("demo").hide();
-    
-    switchCentralContent();
-})
-
-$("#button-tutorial").hover(
-    function() {
-        var $this = $(this); // caching $(this)
-        $this.data('first time?', $this.text());
-        $this.text("Tutorial");
-    },
-    function() {
-        var $this = $(this); // caching $(this)
-        $this.text($this.data('first time?'));
-    }
-)
-
-
-$("#button-demo").click(function(){
-    $("quote").toggle();
-    $("demo").toggle(function(){
-        $("#button-demo").toggleClass("active");
-    });
-    $("#button-tutorial").removeClass("active");
-    $("#button-about").removeClass("active");    
-    $("about").hide();
-    $("tutorial").hide();
-})
-
-$("#button-demo").hover(
-    function() {
-        var $this = $(this); // caching $(this)
-        $this.data('Old Friends', $this.text());
-        $this.text("Start Mindscaping");
-    },
-    function() {
-        var $this = $(this); // caching $(this)
-        $this.text($this.data('Old Friends'));
-    }
-)
-
-$("#button-start-demo").click(function(){
-//    $("quote").toggle();
-    $("demo").show();
-    $("#button-tutorial").removeClass("active");
-    $("#button-about").removeClass("active");    
-    $("about").hide();
-    $("tutorial").hide();
-})
-
-
-//tutorial page control
-
-backButton.click(function () {
-    previousStep("backButton");
-})
-
-nextButton.click(function () {
-    nextStep("nextButton");
-    // console.log(thoughtsForms)
-})
 
 function nextStep(trigger) {
     pageNumber += 1;
@@ -260,7 +152,7 @@ function drawNode(name){
    updateNodes();  
     $("#theGuides").html("<u>Drag</u> to move the node <br/> <u>Doubleclick</u> to Delete Node");
     document.getElementById("myInput").value = "";
-    
+    $("#finish-button").show(); 
     $("#finish-button").text("finish"); 
 }
 
@@ -336,8 +228,6 @@ function linkingBegins() {
     $("#nodeCounter").html("Start a new stream of consciousness");
     console.log("interaction");
     $("#finish-button").hide();
-    $("#analysis-button").show();
-
 }
 
 
@@ -465,8 +355,6 @@ function mouseUp() {
         node.on("mousedown", null)
 //            .on("dblclick", null);
         untangle();  
-        $("#nodeCounter").text("Your nodes are all connected! Press the 'analysis' button" ) 
-        $("#analysis-button").text("analysis");   
       } 
   }
   
