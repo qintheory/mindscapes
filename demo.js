@@ -1,5 +1,6 @@
 $(document).ready(function(){
     console.log("document ready");
+    $("nav").show();
     $("#questionaire").hide();
     $("demo").show();
     $("#finish-button").hide();
@@ -28,6 +29,7 @@ var connector = [];
 var train = [];
 var streams = [];
 var nowClick;
+var wrapWidth = 100
 
 var width = window.innerWidth || document.body.clientWidth,
     height = window.innerHeight || document.body.clientHeight;
@@ -50,7 +52,16 @@ var text = svg.append("g").attr("class", "texts")
 var link = svg.append("g").attr("stroke", "#000").attr("stroke-width", 1.5).selectAll("path");
     
 var links = [];
-    
+ 
+// add transition time
+var t = d3.transition()
+    .duration(750)
+    .ease(d3.easeLinear);
+
+
+
+//d3.selectAll('.text').call(wrap);
+
 // DEFINING Arrows on the links/arcs    
 svg.append("defs").selectAll("marker")
     .data(["end"])
@@ -77,65 +88,10 @@ var simulation = d3.forceSimulation(nodes)
     .force("center", d3.forceCenter(width / 2, height / 2))
     .on("tick", tick);   
 
-var page1 = $("#tut1"),
-    page2 = $("#tut2"),
-    page3 = $("#tut3"),
-    page4 = $("#tut4"),
-    page5 = $("#tut5");
-
-var centralContents = [
-    page1,
-    page2,
-    page3,
-    page4,
-    page5
-    ]
-
-
-
-function nextStep(trigger) {
-    pageNumber += 1;
-    switchCentralContent()  
-    if(pageNumber == 2) {
-        document.getElementById('vid2').play();
-    }
-    if(pageNumber == 4) {
-        nextButton.hide();
-    }
-}
-
-function previousStep(trigger) {
-    pageNumber -= 1;
-    switchCentralContent();
-}
-
-function switchCentralContent(){
-    page1.hide();
-    page2.hide();
-    page3.hide();
-    page4.hide();
-    page5.hide();
-    
-    centralContents[pageNumber].show();
-    
-    if(pageNumber == 0){
-        endBeginning.show();
-        backButton.hide();
-        $("#pagecounter").text(" ");
-    }
-    else{
-        endBeginning.hide();
-        backButton.show();
-        nextButton.show();
-        $("#pagecounter").text(pageNumber);
-    }    
-}
-
 
 // enabling mouse up at all times   
 svg.on("mouseup", mouseUp);
 //restart();
-
 
 // MAKE NODES FROM USER INPUT    
 function enter(){
@@ -144,6 +100,7 @@ function enter(){
     return false;
 }
   
+
 function drawNode(name){
    var item = {name, id, size};
 //   id ++;
@@ -185,10 +142,11 @@ function updateNodes(d, i) {
       .append("circle")
       .attr("class", "node")
       .attr("r", 10)
+      .style("opacity", 0)
       .attr("id", function(d){ return d.id; })
       .style("stroke-opacity", 1)
       .merge(node)
-        .call(d3.drag()
+      .call(d3.drag()
         .on("start", dragstarted)
         .on("drag", dragged)
         .on("end", dragended))
@@ -217,7 +175,12 @@ function updateNodes(d, i) {
 
 // ENABLING LINK MAKING FROM NODES     
 function linkingBegins() {
+    simulation.force("charge", d3.forceManyBody().strength(-1200));
+    
+    
     node = node
+        .attr("r", 15)
+        .style("opacity", 0.9)
         .on('mousedown.drag', null)
         .on("mousedown", makeLinks)
 //        .on("dblclick", deleteLink)
@@ -308,12 +271,12 @@ function selectedNode(d) {
     
     // selected node - colour highlighted
     d3.select(d).transition()
-            .style("fill", "coral")
+            .style("fill", "#669999")
                 .attr("r", 34)
             .transition()
               .attr("r", 10)
     ;  
-    node = node.style("fill", "aliceblue").merge(node);
+    node = node.style("fill", "coral").merge(node);
    
     // 
      $("#nodeCounter").text(nodes[d.id].name + " reminds me of")
@@ -380,9 +343,10 @@ $("#analysis-button").click(function(){
     $("analysis").show();
     $("guide").hide();
     $("#questionaire").show();
+    $("#analysis-button").hide();
 //    var graphAnalysis = links;
     analysis(links);
-    $("#analysis-button").hide();
+   
 //    $("")
 });
 

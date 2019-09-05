@@ -33,21 +33,22 @@
             </box> 
         </check-in>  
 -->     
-<nav>    
-        <button class="button" id="finish-button" onclick ="linkingBegins()"></button> 
-        <button class="button" id="analysis-button" onclick ="linkingBegins()"></button>
-</nav> 
     
      
 
     <demo class = "container" id = "text-input">   
-         <form class = "container" name="Baseline Generation" autocomplete="off" onSubmit="return enter()">
-            <input type="text" id="myInput" placeholder="Add what's going through your mind...">
-            <input name="Submit"  type="submit" value="Submit" id = "submit-button"> 
+         <form class = "container" name="Baseline Generation" autocomplete="on" onSubmit="return enter()">
+            <input type="text" id="myInput" placeholder="Press Enter key to submit">
+<!--            <input name="Submit"  type="submit" value="Submit" id = "submit-button"> -->
         </form>
+
     </demo>  
+    <nav id = "finish-analysis">
+        <button class="button" id="finish-button" onclick ="linkingBegins()"></button> 
+        <button class="button" id="analysis-button" onclick ="linkingBegins()"></button>
+    </nav>
     <questionaire id = "questionaire">
-            <form name='questionaire' method='POST'><input type='hidden' name='form-name' value='questionaire' />
+            <form name='questionaire' method='POST' data-netlify="true"><input type='hidden' name='form-name' value='questionaire' />
               <p>
                 <label>Send Charlotte Your Data <textarea id="graph-analysis" name="data"></textarea></label>
               </p>
@@ -56,7 +57,6 @@
      </questionaire>   
  
 </body>
-    
 <script src="demo.js"></script> 
-    
+   
 </html>

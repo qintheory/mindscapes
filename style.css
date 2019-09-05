@@ -236,7 +236,7 @@ central-content {
 
 #text-input {
     position: fixed;
-    bottom: 0;
+    bottom: 10%;
     width:100%; 
 }
 
@@ -273,6 +273,16 @@ input {
     font-weight: 600;
     background-color:  transparent;
     color: #669999;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#finish-analysis {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin: 20px;
+    display: flex;
+    display: center;
 }
 
 input:toggle { 
@@ -292,7 +302,7 @@ playground{
     border: 1px dotted #ccc; 
     border: none;
     background: white; 
-    padding: 5px 5px; 
+    padding: 5px5px; 
     font-size: 14px; 
     margin: 0 10px 0 0; 
     color: #5F6A6A;
@@ -427,14 +437,18 @@ circle {
 }
 
 text {
-      font: 11px "helvetica";
+      font: 20px "Montserrat";
       pointer-events: none;
-      color: #333300;
-      opacity: 0.5;
+/*      opacity: 0.5;*/
 /*      text-shadow: 0 1px 0 aliceblue, 1px 0 0 aliceblue, 0 -1px 0 aliceblue, -1px 0 0 aliceblue;*/
-      color: #5F6A6A;
-      text-shadow: 0 1px 0 aliceblue, 1px 0 0 aliceblue, 0 -1px 0 aliceblue, -1px 0 0 aliceblue;
+      color: #333300;
+/*      text-shadow: 0 0.5px 0 aliceblue, 1px 0 0 aliceblue, 0 -1px 0 aliceblue, -1px 0 0 aliceblue;*/
       width: 5px;
+}
+
+.text{
+    position: fixed;
+    width: 50px;
 }
 
 .link {
