@@ -176,12 +176,12 @@ function updateNodes(d, i) {
 // ENABLING LINK MAKING FROM NODES     
 function linkingBegins() {
     simulation
-        .force("charge", d3.forceManyBody().strength(-800))
+        .force("charge", d3.forceManyBody().strength(-300))
         .force("collide", d3.forceCollide().radius(150));
     
     
     node = node
-        .attr("r", 15)
+        .attr("r", 30)
         .style("opacity", 0.9)
         .on('mousedown.drag', null)
         .on("mousedown", makeLinks)
@@ -276,7 +276,7 @@ function selectedNode(d) {
             .style("fill", "#669999")
                 .attr("r", 35)
             .transition()
-              .attr("r", 25)
+              .attr("r", 30)
     ;  
     node = node.style("fill", "coral").merge(node);
    
@@ -288,7 +288,7 @@ function deselectNode(d) {
     
     // unhighlight the previous node
     d3.select(d)
-        .attr("r", 10)
+        .attr("r", 30)
         .style("fill", "aliceblue")
         .merge(node)
     ; 
@@ -355,10 +355,12 @@ $("#analysis-button").click(function(){
 function untangle(){
     simulation.force("link", d3.forceLink(links).distance(100))
         .force("charge", d3.forceManyBody().strength(-300))
-        .force("collide", d3.forceCollide().radius(20));
+        .force("collide", d3.forceCollide().radius(60));
     console.log("untangled!")
     //innitiate dragging
-    node.call(d3.drag()
+    
+    node.style("color", "coral")
+        .call(d3.drag()
         .on("start", dragstarted)
         .on("drag", dragged)
         .on("end", dragended));
@@ -393,7 +395,7 @@ function analysis(links){
     var counts = [];
     var n = 1
     
-    simulation.force("link", d3.forceLink(links).distance(250))
+    simulation.force("link", d3.forceLink(links).distance(150))
         .force("charge", d3.forceManyBody().strength(-300))
         .force("collide", d3.forceCollide().radius(50));
     
@@ -417,7 +419,9 @@ function analysis(links){
         nodes[d].size *= (counts[i]+0.5); 
     })
     
-    node.attr("r", function(d){return d.size * 5});
+    node.attr("r", function(d){return d.size * 5})
+        .style("color", "coral");
+    
     $("#analysis-button").hide();
 //    loop.filter()
 }

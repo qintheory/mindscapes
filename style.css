@@ -427,10 +427,9 @@ analysis {
 }
 
 circle {
-    z-index: 9;
+    z-index: 10;
     fill: coral;
     opacity: 0.7;
-/*    stroke: aliceblue;*/
     stroke-width: 1.5px;
 }
 
