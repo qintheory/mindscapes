@@ -84,7 +84,7 @@ var simulation = d3.forceSimulation(nodes)
     .force("x", d3.forceX())
     .force("y", d3.forceY())
     .alphaTarget(0.5)
-    .force("r", d3.forceRadial(400))
+    .force("r", d3.forceRadial(300))
     .force("center", d3.forceCenter(width / 2, height / 2))
     .on("tick", tick);   
 
@@ -176,8 +176,8 @@ function updateNodes(d, i) {
 // ENABLING LINK MAKING FROM NODES     
 function linkingBegins() {
     simulation
-        .force("charge", d3.forceManyBody().strength(-300))
-        .force("collide", d3.forceCollide().radius(150));
+        .force("charge", d3.forceManyBody().strength(-1800))
+        .force("collide", d3.forceCollide().radius(10));
     
     
     node = node
@@ -292,9 +292,7 @@ function deselectNode(d) {
         .style("fill", "aliceblue")
         .merge(node)
     ; 
-    
-//    console.log("innitiate node" + d.id)
-//    $("#nodeCounter").text("Nothing is selected")
+
     
 }
  
@@ -354,7 +352,7 @@ $("#analysis-button").click(function(){
 
 function untangle(){
     simulation.force("link", d3.forceLink(links).distance(100))
-        .force("charge", d3.forceManyBody().strength(-300))
+        .force("charge", d3.forceManyBody().strength(-1300))
         .force("collide", d3.forceCollide().radius(60));
     console.log("untangled!")
     //innitiate dragging
