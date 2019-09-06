@@ -56,7 +56,7 @@ position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: 80px;
+    height: 120px;
     background-color: transparent;
 /*    background-color: #FDEDEC;*/
     
@@ -65,16 +65,8 @@ position: fixed;
 
 }
 
-/*
-header li{
-    display: inline-block;
-
-    font-family: "Moon Bold"; 
-    
-}
-*/
 header img{
-    height: 80px;
+    height: 70px;
 
     margin-left: 40px;
     margin-bottom: 40px;
@@ -115,8 +107,15 @@ nav {
 #title-line{
    line-height: 150%; 
    width: 1500px;
-   padding: 80px;
+   padding: 20px;
     text-align: center;
+}
+
+#title-guide{
+    padding-top: 30px;
+    padding-bottom: 0;
+    font-family: "Playfair";
+    font-style: italic;
 }
 
 quote {
@@ -141,11 +140,11 @@ button {
     color:aliceblue;
     background-color: #669999;
     opacity: 0.6;
-    width: 10vw;
+    width: auto;
     transition: 0.2s;
     cursor: pointer;
     margin: 2vh 2vw;
-/*    border: 2px solid #669999;*/
+    border: 5px solid #669999;
     border-radius: 50px;
 /*    display: flex;*/
 /*	justify-content: center;*/
@@ -155,10 +154,9 @@ button {
 
 button:hover {
     opacity: .9;
-
+    font-family: "moon bold";
     border-radius: 50px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-
 }
 
 button a {
@@ -244,7 +242,7 @@ central-content {
 input {
 /*    border: 1px dotted #ccc; */
     border: none;
-    width: 600px;
+    width: 400px;
     background: transparent; 
     padding: 5px 5px; 
     font-size: 25px; 
@@ -279,7 +277,6 @@ input {
 #finish-analysis {
     position: fixed;
     bottom: 0;
-    width: 100%;
     margin: 20px;
     display: flex;
     display: center;
@@ -438,7 +435,7 @@ circle {
 }
 
 text {
-      font: 20px "Montserrat";
+      font: 14px "Montserrat";
       pointer-events: none;
 /*      opacity: 0.5;*/
 /*      text-shadow: 0 1px 0 aliceblue, 1px 0 0 aliceblue, 0 -1px 0 aliceblue, -1px 0 0 aliceblue;*/
