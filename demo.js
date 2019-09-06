@@ -176,7 +176,7 @@ function updateNodes(d, i) {
 // ENABLING LINK MAKING FROM NODES     
 function linkingBegins() {
     simulation
-        .force("charge", d3.forceManyBody().strength(-1200))
+        .force("charge", d3.forceManyBody().strength(-800))
         .force("collide", d3.forceCollide().radius(150));
     
     
@@ -274,9 +274,9 @@ function selectedNode(d) {
     // selected node - colour highlighted
     d3.select(d).transition()
             .style("fill", "#669999")
-                .attr("r", 34)
+                .attr("r", 35)
             .transition()
-              .attr("r", 10)
+              .attr("r", 25)
     ;  
     node = node.style("fill", "coral").merge(node);
    
@@ -395,7 +395,7 @@ function analysis(links){
     
     simulation.force("link", d3.forceLink(links).distance(250))
         .force("charge", d3.forceManyBody().strength(-300))
-        .force("collide", d3.forceCollide().radius(20));
+        .force("collide", d3.forceCollide().radius(50));
     
     links.forEach(function(d, i){
         var item = d.target.id;
@@ -418,7 +418,7 @@ function analysis(links){
     })
     
     node.attr("r", function(d){return d.size * 5});
-
+    $("#analysis-button").hide();
 //    loop.filter()
 }
 
