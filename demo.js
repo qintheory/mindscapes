@@ -115,13 +115,13 @@ function drawNode(name){
 }
 
 
-function deleteNode(d, i) {
-    nodes.splice(i, 1);
-    console.log("node deleted!")
-    
-    d3.event.stopPropagation();
-    updateNodes();
-}
+//function deleteNode(d, i) {
+//    nodes.splice(i, 1);
+//    console.log("node deleted!")
+//    
+//    d3.event.stopPropagation();
+//    updateNodes();
+//}
 
 function updateNodes(d, i) {
     console.log("update nodes")
@@ -150,7 +150,7 @@ function updateNodes(d, i) {
         .on("start", dragstarted)
         .on("drag", dragged)
         .on("end", dragended))
-      .on('dblclick', deleteNode)
+//      .on('dblclick', deleteNode)
     ;
     
 
@@ -273,12 +273,12 @@ function selectedNode(d) {
     
     // selected node - colour highlighted
     d3.select(d).transition()
-            .style("fill", "#669999")
+            .style("fill", "coral")
                 .attr("r", 35)
             .transition()
               .attr("r", 30)
     ;  
-    node = node.style("fill", "coral").merge(node);
+    node = node.style("fill", "#669999").merge(node);
    
     // 
      $("#nodeCounter").text(nodes[d.id].name + " reminds me of")
@@ -289,7 +289,7 @@ function deselectNode(d) {
     // unhighlight the previous node
     d3.select(d)
         .attr("r", 30)
-        .style("fill", "aliceblue")
+        .style("fill", "#669999")
         .merge(node)
     ; 
 
@@ -357,7 +357,7 @@ function untangle(){
     console.log("untangled!")
     //innitiate dragging
     
-    node.style("color", "coral")
+    node.style("color", "#669999")
         .call(d3.drag()
         .on("start", dragstarted)
         .on("drag", dragged)
@@ -395,7 +395,7 @@ function analysis(links){
     
     simulation.force("link", d3.forceLink(links).distance(150))
         .force("charge", d3.forceManyBody().strength(-300))
-        .force("collide", d3.forceCollide().radius(50));
+        .force("collide", d3.forceCollide().radius(80));
     
     links.forEach(function(d, i){
         var item = d.target.id;
@@ -415,10 +415,18 @@ function analysis(links){
     
     ids.forEach(function(d, i){
         nodes[d].size *= (counts[i]+0.5); 
+        
     })
     
-    node.attr("r", function(d){return d.size * 5})
-        .style("color", "coral");
+    link.style("z-index", "1");
+    
+    node.attr("r", "30")
+        .style("color", "coral")
+        .style("opacity", function(d) {if (d.size < 2) {return "0"}});
+    
+    text.style("font-size", function(d){return (14 + d.size*5) })
+        .style("z-index", "8");
+    
     
     $("#analysis-button").hide();
 //    loop.filter()

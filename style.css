@@ -98,17 +98,18 @@ nav {
 }
 
 #title-image {
-    width: 1000px;
+    width: 600px;
     padding-top: 80px;
-    padding-left: 200px;
-/*    padding-bottom: 150px;*/
+    
+/*    padding-left: 200px;*/
+    padding-bottom: 80px;
 }
 
 #title-line{
    line-height: 150%; 
-   width: 1500px;
-   padding: 20px;
-    text-align: center;
+    font-size: 28px;
+   width: 40%;
+/*    text-align: center;*/
 }
 
 #title-guide{
@@ -120,9 +121,9 @@ nav {
 
 quote {
     width:50vw;
-    font-style: italic;
-    font-family: "Playfair";
-    font-size: 35px;
+/*    font-style: italic;*/
+    font-family: "Montserrat";
+    font-size: 25px;
     line-height: 120%;
     padding: 100px 10px; 
     text-align: center;
@@ -133,7 +134,7 @@ quote {
 button {
     min-height: 3vh;
     font-family: "moon";
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 500;
 /*    color: #669999;*/
 /*    border-color: #669999;*/
@@ -199,7 +200,7 @@ central-content {
 .content {
     position: absolute;
     top: 1vh;
-    width: 80%;
+    width: 40%;
     background: #FDEDEC; 
     display: flex;
     flex-flow: column nowrap;
@@ -219,7 +220,7 @@ central-content {
 }
 
 #security {
-    font-style: italic;
+/*    font-style: italic;*/
     color: #669999;
 }
 
@@ -427,8 +428,8 @@ analysis {
 }
 
 circle {
-    z-index: 10;
-    fill: coral;
+    z-index: 9;
+    fill: #669999;
     opacity: 0.7;
     stroke-width: 1.5px;
 }
@@ -454,9 +455,9 @@ text {
       fill: #669999;
 */
     fill: none;
-     stroke-width: 2px;
+    stroke-width: 5px;
     stroke: #669999;
-    
+    z-index: 8;
      opacity: 0.9;
 }
 
@@ -464,6 +465,7 @@ line {
     
      stroke: #669999;
      stroke-width: 2px;
+        z-index: 8;
      stroke-linecap: round;
 }
 
