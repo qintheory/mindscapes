@@ -443,7 +443,33 @@ function linkArc(d) {
   var dx = d.target.x - d.source.x,
       dy = d.target.y - d.source.y,
       dr = Math.sqrt(dx * dx + dy * dy);
-  return "M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 0,1 " + d.target.x + "," + d.target.y;
+    
+  var r = 25,
+      l = Math.sqrt(dx * dx + r * r);
+    
+//      r = 25, 
+//      d = Math.sqrt(dr * dr + r * r)
+//      var xPad,
+//          yPad; 
+//        
+//        console.log(d.source)  
+//        if(d.target.x < d.source.x) {
+//            xPad = d.source.x - 25;
+//        } else {
+//            xPad = d.source.x +25;
+//        }
+//        
+//        if(d.target.y < d.source.y) {
+//            yPad = d.source.y + 25;
+//        } else {
+//            yPad = d.source.y -25;
+//        }  
+//  return "M" + xPad + "," + yPad + "Q" + dr + "," + dr + " 0 0,1 " + d.target.x + "," + d.target.y + "T" + d.source.x + " " + d.source.y;
+    
+  return "M" + d.source.x + "," + d.source.y + "A" + l + "," + l + " 0 0,1 " + d.target.x + "," + d.target.y ;
+//    
+//  return "M" + xPad + " " + yPad + "A" + dr + "," + dr + " 0 0,1 " + d.target.x + "," + d.target.y + ", " + "T" + d.target.x + " " + d.target.y;
+        
 }
 
 function dragstarted(d) {
