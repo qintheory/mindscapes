@@ -30,7 +30,7 @@
 
 
 body {
-    font-family: "Montserrat";
+    font-family: "Montserrat-Regular";
     line-height: 160%; 
     font-size: 18px; 
     align-items: center;
@@ -66,11 +66,10 @@ position: fixed;
 }
 
 header img{
-    height: 70px;
-
+    height: 60px;
     margin-left: 40px;
-    margin-bottom: 40px;
-    justify-content: center;
+    display: inline;
+    display: center;
 }
 
 header * {
@@ -122,7 +121,7 @@ nav {
 quote {
     width:50vw;
 /*    font-style: italic;*/
-    font-family: "Montserrat";
+    font-family: "Montserrat-Light";
     font-size: 25px;
     line-height: 120%;
     padding: 100px 10px; 
@@ -333,7 +332,7 @@ h3 {
 
 /*text*/
 #myInput {
-    font-family: Montserrat;
+    font-family: "Montserrat-Regular";
 }
 
 
@@ -435,7 +434,7 @@ circle {
 }
 
 text {
-      font: 14px "Montserrat";
+      font: 14px "Montserrat-Regular";
       pointer-events: none;
 /*      opacity: 0.5;*/
 /*      text-shadow: 0 1px 0 aliceblue, 1px 0 0 aliceblue, 0 -1px 0 aliceblue, -1px 0 0 aliceblue;*/

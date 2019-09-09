@@ -1996,7 +1996,7 @@
     "source": {
       "id": 1, 
       "index": 1, 
-      "name": "creativity ", 
+      "name": "creativity", 
       "size": 2, 
       "vx": -42.05759470039821, 
       "vy": -31.72710722969488, 
@@ -2078,7 +2078,7 @@
     "target": {
       "id": 2, 
       "index": 2, 
-      "name": "curiosity ", 
+      "name": "curiosity", 
       "size": 1, 
       "vx": -61.84837642388622, 
       "vy": -46.47248169822529, 
@@ -2092,7 +2092,7 @@
     "source": {
       "id": 2, 
       "index": 2, 
-      "name": "curiosity ", 
+      "name": "curiosity", 
       "size": 2, 
       "vx": -61.84837642388622, 
       "vy": -46.47248169822529, 

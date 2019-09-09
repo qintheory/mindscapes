@@ -85,7 +85,39 @@
     "name": "the film",
     "children": [
         {
-            "name": "JINST"
+            "name": "JINST", 
+            "children":[
+                {
+                    "name": "JINST",
+                    "children": [
+                        {
+                            "name": "JINST", 
+                            "size": 1111
+                        },
+                        {
+                            "name": "JINST", 
+                            "size": 3500
+                        }
+                    ]    
+                },
+                {
+                    "name": "JINST",
+                    "children": [
+                        {
+                            "name": "JINST", 
+                            "size": 1111
+                        },
+                        {
+                            "name": "JINST", 
+                            "size": 2500
+                        },
+                                                {
+                            "name": "JINST", 
+                            "size": 3500
+                        }
+                    ]    
+                }
+                ]    
         }
     ]    
     },

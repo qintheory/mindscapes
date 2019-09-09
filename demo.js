@@ -313,14 +313,13 @@ function mouseUp() {
   if (nodeClicked == false) {
       console.log("previous node nulled, restart");
       previousClick = null;
-      if (links.length == nodes.length) {
+      if (links.length == nodes.length && nodes.length > 0) {
         console.log("linking finished");
 //        node.style("fill", "#ccc"); 
         //disable makeLinks
         node.on("mousedown", null)
 //            .on("dblclick", null);
         untangle();
-        $("#analysis-button").show().text("analysis");   
       } 
   }
   
@@ -368,6 +367,7 @@ function untangle(){
       var graphAnalysis = JSON.stringify(links);
      $("#graph-analysis").text(graphAnalysis);
 //    console.log(graphAnalysis);
+     $("#analysis-button").show().text("analysis");   
 
 }
 
@@ -427,6 +427,7 @@ function analysis(links){
     text.style("font-size", function(d){return (14 + d.size*5) })
         .style("z-index", "8");
     
+    svg.on("mouseup", null);
     
     $("#analysis-button").hide();
 //    loop.filter()
