@@ -14,6 +14,26 @@
     src: url("fonts/Moon Bold.otf");
 }
 
+@font-face {
+    font-family: "Montserrat Bold";
+    src: url("fonts/Montserrat-Bold.otf");
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("fonts/Montserrat-Regular.otf");
+}
+
+@font-face {
+    font-family: "Montserrat Light";
+    src: url("fonts/Montserrat-Light.otf");
+}
+
+@font-face {
+    font-family: "Montserrat Italic";
+    src: url("fonts/Montserrat-Italic.otf");
+}
+
 @media only screen and (device-width: 768px) {
   /* For general iPad layouts */
 }
@@ -30,7 +50,7 @@
 
 
 body {
-    font-family: "Montserrat-Regular";
+    font-family: "Montserrat";
     line-height: 160%; 
     font-size: 18px; 
     align-items: center;
@@ -49,33 +69,27 @@ svg {
 
 
 header{
-position: fixed;
+    position: fixed;
     width: 100%;
-    z-index: 10;
-    z-index: 8;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 120px;
+    height: 20px;
+    z-index: 1;
     background-color: transparent;
 /*    background-color: #FDEDEC;*/
     
     display: flex;
-    align-items: center;
+    text-align:center;
 
 }
 
 header img{
     height: 60px;
     margin-left: 40px;
-    display: inline;
-    display: center;
+    display:inline-block;
 }
 
 header * {
     display: inline;
 }
-
 
 
 /*----------------------------------------------------*/
@@ -121,7 +135,7 @@ nav {
 quote {
     width:50vw;
 /*    font-style: italic;*/
-    font-family: "Montserrat-Light";
+    font-family: "Montserrat Light";
     font-size: 25px;
     line-height: 120%;
     padding: 100px 10px; 
@@ -199,7 +213,7 @@ central-content {
 .content {
     position: absolute;
     top: 1vh;
-    width: 40%;
+    width: 50%;
     background: #FDEDEC; 
     display: flex;
     flex-flow: column nowrap;
@@ -211,7 +225,7 @@ central-content {
 }
 
 .function {
-    font-weight: 600;
+    font-family: "Montserrat Bold";
 }
 
 .solution {
@@ -226,6 +240,11 @@ central-content {
 #our-story {
     width: 80%;
     padding-top: 70px;
+}
+
+.deco-image {
+    width: 40%;
+    padding: 30px 30px;
 }
 
 /*----------------------- demo -----------------------*/
@@ -317,7 +336,7 @@ questionaire {
 /*----------------------- text -----------------------*/
 
 h1 {
-    font-weight: 200;
+    font-family: "Montserrat Bold";
     line-height: 100%;
 }
 h2 {
@@ -332,7 +351,7 @@ h3 {
 
 /*text*/
 #myInput {
-    font-family: "Montserrat-Regular";
+    font-family: "Montserrat";
 }
 
 
@@ -350,6 +369,10 @@ video {
     padding: 20px 10px; 
 }
 
+.sub-box {
+    width: 50%;
+    padding: 20px 20px;
+}
 
 .container {
     background-color: transparent;
@@ -368,6 +391,7 @@ video {
 }
 
 
+/*
 guide {
     position: absolute;
     max-width: 40vw;
@@ -398,6 +422,7 @@ analysis {
     z-index: 8;
     opacity: 0.6;
 }
+*/
 
 .feature {
 /*    padding-bottom:2px;*/
@@ -434,7 +459,7 @@ circle {
 }
 
 text {
-      font: 14px "Montserrat-Regular";
+      font: 14px "Montserrat";
       pointer-events: none;
 /*      opacity: 0.5;*/
 /*      text-shadow: 0 1px 0 aliceblue, 1px 0 0 aliceblue, 0 -1px 0 aliceblue, -1px 0 0 aliceblue;*/
