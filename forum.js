@@ -110,8 +110,7 @@ d3.json("data/eco_2.json", function(links) {
       var r =  d.source.name.size*10; 
       var xPad,
           yPad; 
-        
-      console.log(d.source)  
+         
         if(d.target.x < d.source.x) {
             xPad = d.source.x - r;
         } else {
