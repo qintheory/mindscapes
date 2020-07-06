@@ -49,12 +49,12 @@ svg.append("defs").selectAll("marker")
     .attr("d", "M0,-5L10,0L0,5"); 
         // forces
     
-    var r = d3.forceRadial(50),
+    var r = d3.forceRadial(150),
         x = d3.forceX(width),
         y = d3.forceY(height),
         attract = d3.forceManyBody().strength(2),
         center = d3.forceCenter(width/2, height/2),
-        collide = d3.forceCollide().radius(50).iterations(6),
+        collide = d3.forceCollide().radius(100).iterations(6),
         link = d3.forceLink(links).distance(25);
      
     var simulation = d3.forceSimulation(nNodes).alphaTarget(0.5).velocityDecay(0.6)
